@@ -15,11 +15,11 @@ const Layout = ({ children }: LayoutProps) => (
     <Head>
       <title>{siteTitle}</title>
       <meta name="description" content={siteDesc} />
-      <meta name="og:image" content={`${getBasePath()}/images/preview.jpg`} />
+      <meta name="og:image" content={`${getBasePath()}/images/digital-instruments.jpg`} />
       <meta name="og:title" content={siteTitle} />
       <meta name="twitter:card" content="summary_large_image" />
       <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap"
         rel="stylesheet"
       ></link>
       <link rel="apple-touch-icon" sizes="180x180" href={`${getBasePath()}/icons/apple-touch-icon.png`} />
