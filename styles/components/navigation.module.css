@@ -1,0 +1,117 @@
+.navItem {
+  border-bottom: 5px solid transparent;
+  color: #fff;
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 1.75rem;
+  text-decoration: none;
+  transition: border .25s ease-out;
+}
+
+.navItem:hover,
+.navItemActive {
+  border-bottom: 5px solid #fff;
+}
+
+.navButton {
+  margin: .5rem;
+  padding: 1rem;
+}
+
+.navButtonIcon {
+  height: 15px;
+  margin-left: .5rem;
+  width: 15px;
+}
+
+.menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+
+.menu {
+  clear: both;
+  max-height: 0;
+  transition: max-height .2s ease-out;
+}
+
+.menuIcn {
+  cursor: pointer;
+  float: right;
+  padding: 2.75rem 2rem;
+  position: relative;
+  user-select: none;
+}
+
+.menuIcn .menuNavIcn {
+  background: #fff;
+  display: block;
+  height: 4px;
+  position: relative;
+  transition: background .2s ease-out;
+  width: 30px;
+}
+
+.menuIcn .menuNavIcn:before,
+.menuIcn .menuNavIcn:after {
+  background: #fff;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+
+.menuIcn .menuNavIcn:before {
+  top: 10px;
+}
+
+.menuIcn .menuNavIcn:after {
+  top: -10px;
+}
+
+.menuBtn {
+  display: none;
+}
+
+.menuBtn:checked ~ .menu {
+  max-height: 280px;
+}
+
+.menuBtn:checked ~ .menuIcn .menuNavIcn {
+  background: transparent;
+}
+
+.menuBtn:checked ~ .menuIcn .menuNavIcn:before {
+  transform: rotate(-45deg);
+}
+
+.menuBtn:checked ~ .menuIcn .menuNavIcn:after {
+  transform: rotate(45deg);
+}
+
+.menuBtn:checked ~ .menuIcn:not(.steps) .menuNavIcn:before,
+.menuBtn:checked ~ .menuIcn:not(.steps) .menuNavIcn:after {
+  top: 0;
+}
+
+@media (min-width: 48rem) {
+  .navItem {
+    margin-right: .5rem;
+  }
+  .menu {
+    clear: none;
+    float: left;
+    max-height: none;
+  }
+  .menu li {
+    float: left;
+  }
+  .menuIcn {
+    display: none;
+  }
+}
