@@ -1,5 +1,5 @@
 import styles from '../styles/components/navigation.module.css';
-import { getBasePath, isSelected } from '../lib/path';
+import { GetBasePath, IsSelected } from '../lib/path';
 
 const Navigation = () => (
   <div className={styles.navigation}>
@@ -9,22 +9,22 @@ const Navigation = () => (
     </label>
     <ul className={styles.menu}>
       <li>
-        <a href={`${getBasePath()}/instruments`} className={`${styles.navItem} ${isSelected('/instruments')}`}>
+        <a href={`${GetBasePath()}/instruments`} className={`${styles.navItem} ${IsSelected('/instruments')}`}>
           instruments
         </a>
       </li>
       <li>
-        <a href={`${getBasePath()}/players`} className={`${styles.navItem} ${isSelected('/players')}`}>
+        <a href={`${GetBasePath()}/players`} className={`${styles.navItem} ${IsSelected('/players')}`}>
           players
         </a>
       </li>
       <li>
-        <a href={`${getBasePath()}/tools`} className={`${styles.navItem} ${isSelected('/tools')}`}>
+        <a href={`${GetBasePath()}/tools`} className={`${styles.navItem} ${IsSelected('/tools')}`}>
           tools
         </a>
       </li>
       <li>
-        <a href={`${getBasePath()}/documentation`} className={`${styles.navItem} ${isSelected('/documentation')}`}>
+        <a href={`${GetBasePath()}/documentation`} className={`${styles.navItem} ${IsSelected('/documentation')}`}>
           documentation
         </a>
       </li>

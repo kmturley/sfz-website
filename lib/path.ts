@@ -1,10 +1,10 @@
 import { useRouter } from 'next/router';
 
-function getBasePath() {
+function GetBasePath() {
   return useRouter().basePath;
 }
 
-function getCrumbUrl(items: string[], itemToMatch: string) {
+function GetCrumbUrl(items: string[], itemToMatch: string) {
   let url: string = '';
   for (const item of items) {
     url += '/' + item;
@@ -13,11 +13,12 @@ function getCrumbUrl(items: string[], itemToMatch: string) {
   return url;
 }
 
-function isSelected(path: string) {
+function IsSelected(path: string) {
+  const router = useRouter();
   if (path === '/') {
-    return useRouter().asPath === path ? 'active' : '';
+    return router.asPath === path ? 'active' : '';
   }
-  return useRouter().asPath.startsWith(path) ? 'active' : '';
+  return router.asPath.startsWith(path) ? 'active' : '';
 }
 
-export { getBasePath, getCrumbUrl, isSelected };
+export { GetBasePath, GetCrumbUrl, IsSelected };

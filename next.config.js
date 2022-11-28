@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: (process.env.NODE_ENV === 'production') ? '/studiorack-site' : '',
+  basePath: (process.env.NODE_ENV === 'production') ? '/sfz-website' : '',
   generateBuildId: async () => {
     return 'latest'
   },
