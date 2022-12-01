@@ -1,0 +1,57 @@
+.section {
+  background-color: #272525;
+  background-position: center;
+  background-size: cover;
+  padding: 1.5rem;
+  scroll-snap-align: start;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 40rem;
+  text-align: center;
+}
+
+.image {
+  margin-bottom: 1rem;
+  max-width: 100%;
+}
+
+.sfzLogo {
+  text-align: center;
+  vertical-align: text-top;
+  width: 52px;
+}
+
+.section p {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+@media (min-width: 48rem) {
+
+  .section {
+    background-image: url(../../public/images/digital-instruments.jpg);
+  }
+
+  .image {
+    display: none;
+  }
+
+  .section {
+    padding-bottom: 15rem;
+    padding-top: 15rem;
+  }
+
+  .section p {
+    font-size: 3rem;
+    line-height: 3.5rem;
+    letter-spacing: -2px;
+  }
+
+  .section .sfzLogo {
+    width: 73px;
+  }
+
+}

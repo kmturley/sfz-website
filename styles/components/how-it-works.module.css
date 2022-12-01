@@ -1,0 +1,51 @@
+.section {
+  background-color: #f4f4f4;
+  background-position: center;
+  background-size: cover;
+  padding: 3rem 1.5rem;
+  scroll-snap-align: start;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 64rem;
+  text-align: center;
+}
+
+.logo {
+  filter: invert(100%);
+  vertical-align: text-top;
+  width: 50px;
+}
+
+.diagram {
+  max-width: 100%;
+}
+
+.panel {
+  background-color: #fff;
+  border-radius: 1rem;
+  display: flex;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  text-align: left;
+}
+
+.number {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-right: 1.5rem;
+}
+
+.description {
+  margin-bottom: 0;
+}
+
+@media (min-width: 48rem) {
+  .table {
+    display: flex;
+  }
+  .column {
+    margin-right: 2rem;
+  }
+}

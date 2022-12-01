@@ -17,16 +17,24 @@ h1,
 h2,
 h3,
 h4,
+h5 {
+  font-weight: 600;
+}
+
+h1,
+h2,
+h3,
+h4,
 h5,
 p {
-  font-weight: 300;
   line-height: 1.15em;
   margin: 0 0 1.25rem 0;
 }
 
 p {
   font-size: 18px;
-  line-height: 1.5em;
+  font-weight: 300;
+  line-height: 1.5rem;
 }
 
 h1 {

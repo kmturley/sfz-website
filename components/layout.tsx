@@ -19,7 +19,7 @@ const Layout = ({ children }: LayoutProps) => (
       <meta name="og:title" content={siteTitle} />
       <meta name="twitter:card" content="summary_large_image" />
       <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap"
         rel="stylesheet"
       ></link>
       <link rel="apple-touch-icon" sizes="180x180" href={`${GetBasePath()}/icons/apple-touch-icon.png`} />
