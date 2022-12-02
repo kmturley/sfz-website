@@ -1,0 +1,14 @@
+.section {
+  background-color: #2D2D2D;
+  padding: 2rem;
+  scroll-snap-align: start;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 90rem;
+}
+
+.link {
+  margin-right: 2rem;
+}

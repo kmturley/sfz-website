@@ -3,6 +3,7 @@ import Navigation from './navigation';
 import styles from '../styles/components/layout.module.css';
 import { GetBasePath } from '../lib/path';
 import { useEffect, useState } from 'react';
+import Footer from './footer';
 
 export const siteTitle = 'sfz';
 export const siteDesc = 'A free and open format to create musical instruments from sound recordings';
@@ -58,6 +59,7 @@ const Layout = ({ children }: LayoutProps) => {
       </div>
     </header>
     <main>{children}</main>
+    <Footer></Footer>
   </div>
   )
 }
