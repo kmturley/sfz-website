@@ -4,12 +4,12 @@ import { GetBasePath } from '../lib/path';
 const HowItWorks = () => (
   <section className={styles.section}>
     <div className={styles.container}>
-      <h3>How <img
+      <h2 className={styles.title}>How <img
         className={styles.logo}
         src={`${GetBasePath()}/images/sfz-logo.svg`}
         alt="sfz"
         loading="lazy"
-        /> works</h3>
+        /> works</h2>
       <div className={styles.table}>
         <div className={styles.column}>
           <div className={styles.panel}>

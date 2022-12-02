@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Navigation from './navigation';
 import styles from '../styles/components/layout.module.css';
 import { GetBasePath } from '../lib/path';
+import { useEffect, useState } from 'react';
 
 export const siteTitle = 'sfz';
 export const siteDesc = 'A free and open format to create musical instruments from sound recordings';
@@ -10,8 +11,24 @@ type LayoutProps = {
   children: React.ReactNode;
 };
 
-const Layout = ({ children }: LayoutProps) => (
-  <div className={styles.container}>
+const Layout = ({ children }: LayoutProps) => {
+  const [bgTransparent, setBgTransparent] = useState(false);
+
+  const updateNav = () => {
+    if (window.innerWidth > 832 && window.scrollY < 585) {
+      setBgTransparent(true);
+    } else {
+      setBgTransparent(false);
+    }
+  }
+
+  useEffect(() => {
+    updateNav();
+    window.addEventListener('scroll', updateNav);
+    window.addEventListener('resize', updateNav);
+  })
+
+  return (<div className={styles.container}>
     <Head>
       <title>{siteTitle}</title>
       <meta name="description" content={siteDesc} />
@@ -27,7 +44,7 @@ const Layout = ({ children }: LayoutProps) => (
       <link rel="icon" type="image/png" sizes="16x16" href={`${GetBasePath()}/icons/favicon-16x16.png`} />
       <link rel="manifest" href={`${GetBasePath()}/icons/site.webmanifest`}></link>
     </Head>
-    <header className={styles.header}>
+    <header className={`${styles.header} ${bgTransparent ? 'bg-transparent' : ''}`}>
       <div className={styles.headerInner}>
         <a href={`${GetBasePath()}/`} className={styles.headerLink}>
           <img
@@ -42,6 +59,7 @@ const Layout = ({ children }: LayoutProps) => (
     </header>
     <main>{children}</main>
   </div>
-);
+  )
+}
 
 export default Layout;

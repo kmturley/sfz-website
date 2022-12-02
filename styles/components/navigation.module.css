@@ -99,7 +99,7 @@
   top: 0;
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 52rem) {
   .navItem {
     margin-right: .5rem;
   }
