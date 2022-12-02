@@ -1,0 +1,58 @@
+.section {
+  background-color: #fff;
+  padding: 8rem 1.5rem;
+  scroll-snap-align: start;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 90rem;
+}
+
+.logo {
+  filter: invert(100%);
+  vertical-align: text-top;
+  width: 50px;
+}
+
+.item {
+  margin: 2em 0 2rem 0;
+}
+
+.link {
+  color: #1A4BAA;
+  font-size: 2rem;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.arrow {
+  color: #000;
+  font-size: 4rem;
+  vertical-align: middle;
+}
+
+@media (min-width: 60rem) {
+  .container {
+    display: flex;
+  }
+  .column:first-child {
+    border-right: .25rem solid #000;
+    flex-basis: 40%;
+    margin-right: 3rem;
+    padding-right: 3rem;
+  }
+  .column:last-child {
+    flex-basis: 60%;
+  }
+  .logo {
+    width: 73px;
+  }
+  .link {
+    font-size: 2.5rem;
+  }
+}

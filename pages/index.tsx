@@ -1,9 +1,8 @@
 import Head from 'next/head';
 import Layout, { siteTitle } from '../components/layout';
-import styles from '../styles/index.module.css';
-import { GetBasePath } from '../lib/path';
 import HowItWorks from '../components/how-it-works';
 import Banner from '../components/banner';
+import GetStarted from '../components/get-started';
 
 const Home = () => (
   <Layout>
@@ -12,6 +11,7 @@ const Home = () => (
     </Head>
     <Banner></Banner>
     <HowItWorks></HowItWorks>
+    <GetStarted></GetStarted>
   </Layout>
 );
 
