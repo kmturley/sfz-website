@@ -1,0 +1,54 @@
+.section {
+  padding: 10rem 1.5rem 3rem 1.5rem;
+  scroll-snap-align: start;
+}
+
+.title {
+  font-size: 2.25rem;
+}
+
+.filters {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.filterTitle {
+  margin-right: 1rem;
+}
+
+.filterDropdown {
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-right: 1rem;
+  padding: .75rem 1rem;
+}
+
+@media (min-width: 48rem) {
+  .list {
+    display: grid;
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 3rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64rem) {
+  .list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 120rem) {
+  .list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 160rem) {
+  .list {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}

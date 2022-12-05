@@ -1,0 +1,29 @@
+.item {
+  background-color: #fff;
+  border-radius: 1.25rem;
+  color: #000;
+  overflow: hidden;
+  text-decoration: none;
+  transition: box-shadow .25s ease-out;
+}
+
+.item:hover {
+  box-shadow: 0 0 2rem #aaa;
+}
+
+.itemDetails {
+  padding: 2rem;
+}
+
+.itemName {
+  margin: 0;
+}
+
+.itemLink {
+  color: #1A4BAA;
+  text-decoration: underline;
+}
+
+.itemView {
+  margin-bottom: 0;
+}

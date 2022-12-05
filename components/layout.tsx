@@ -4,6 +4,7 @@ import styles from '../styles/components/layout.module.css';
 import { GetBasePath } from '../lib/path';
 import { useEffect, useState } from 'react';
 import Footer from './footer';
+import { useRouter } from 'next/router';
 
 export const siteTitle = 'sfz';
 export const siteDesc = 'A free and open format to create musical instruments from sound recordings';
@@ -13,6 +14,7 @@ type LayoutProps = {
 };
 
 const Layout = ({ children }: LayoutProps) => {
+  const router = useRouter()
   const [bgTransparent, setBgTransparent] = useState(false);
 
   const updateNav = () => {
@@ -24,9 +26,11 @@ const Layout = ({ children }: LayoutProps) => {
   }
 
   useEffect(() => {
-    updateNav();
-    window.addEventListener('scroll', updateNav);
-    window.addEventListener('resize', updateNav);
+    if (router.pathname === '/') {
+      updateNav();
+      window.addEventListener('scroll', updateNav);
+      window.addEventListener('resize', updateNav);
+    }
   })
 
   return (<div className={styles.container}>
