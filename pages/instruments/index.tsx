@@ -32,6 +32,14 @@ const Instruments = () => {
     return ['Basses','Brass','Drums','Folk','Guitars','Keyboards','Melodic Percussion','Misc','Orchestra','Percussion','Pianos','Strings','Synthesizers','Woodwinds'];
   }
 
+  const getCompatibilities = () => {
+    return ['Bassmidi','sforzando','sfizz'];
+  }
+
+  const getCosts = () => {
+    return ['Free','$0-$9','$10-$29','$30-$49','$50+'];
+  }
+
   const getInstruments = () => {
     const instruments: YamlInstrument[] = [];
     (instrumentsYaml as YamlInstruments).categories.forEach((category: YamlCategory) => {
@@ -41,6 +49,10 @@ const Instruments = () => {
       })
     });
     return instruments;
+  }
+
+  const getLicenses = () => {
+    return ['CC0','CC-BY-3.0','CC-BY-4.0','CC-BY-NC-SA-3.0','GPL-3.0','Other'];
   }
 
   return (<Layout>
@@ -54,26 +66,9 @@ const Instruments = () => {
       <div className={styles.filters}>
         <span className={styles.filterTitle}>Filter by:</span>
         <MultiSelect label="Category" values={getCategories()}></MultiSelect>
-        <select className={styles.filterDropdown} name="category" id="category">
-          <option value="">Category</option>
-          <option value="basses">&#9744;Basses</option>
-          <option value="brass">Brass</option>
-        </select>
-        <select className={styles.filterDropdown} name="license" id="license">
-          <option value="">License</option>
-          <option value="cc0">CC0</option>
-          <option value="cc-by-30">CC-BY-3.0</option>
-        </select>
-        <select className={styles.filterDropdown} name="cost" id="cost">
-          <option value="">Cost</option>
-          <option value="free">Free</option>
-          <option value="0-9">$0-$9</option>
-        </select>
-        <select className={styles.filterDropdown} name="compatibility" id="compatibility">
-          <option value="">Compatibility</option>
-          <option value="bassmidi">Bassmidi</option>
-          <option value="sforzando">sforzando</option>
-        </select>
+        <MultiSelect label="License" values={getLicenses()}></MultiSelect>
+        <MultiSelect label="Cost" values={getCosts()}></MultiSelect>
+        <MultiSelect label="Compatibility" values={getCompatibilities()}></MultiSelect>
       </div>
       <div className={styles.list}>
         {getInstruments().map((instrument: YamlInstrument, itemIndex: number) => (

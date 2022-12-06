@@ -12,15 +12,14 @@ const MultiSelect = ({ label , values}: MultiSelectProps) => {
     e.preventDefault();
     e.target.blur();
     window.focus();
-    var checkboxes = document.getElementById('checkboxes');
+    var checkboxes = document.getElementById(label);
     if (!expanded) {
-      if (checkboxes) checkboxes.style.display = "block";
+      if (checkboxes) checkboxes.style.display = 'block';
       expanded = true;
     } else {
-      if (checkboxes) checkboxes.style.display = "none";
+      if (checkboxes) checkboxes.style.display = 'none';
       expanded = false;
     }
-    console.log('expanded', expanded);
   }
 
   return(
@@ -28,10 +27,10 @@ const MultiSelect = ({ label , values}: MultiSelectProps) => {
       <select className={styles.multiselectTitle} onMouseDown={showCheckboxes}>
         <option>{label}</option>
       </select>
-      <div className={styles.multiselectCheckboxes} id="checkboxes">
+      <div className={styles.multiselectCheckboxes} id={label}>
         {
           values.map((value: string, index: number) => (
-            <label className={styles.multiselectLabel} htmlFor={value}><input type="checkbox" id={value} />{value}</label>
+            <label className={styles.multiselectLabel} htmlFor={value}><input className={styles.multiselectInput} type="checkbox" id={value} />{value}</label>
           ))
         }
       </div>

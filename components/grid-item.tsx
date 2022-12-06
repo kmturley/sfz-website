@@ -1,7 +1,5 @@
-import styles from '../styles/components/multi-select.module.css';
+import styles from '../styles/components/grid-item.module.css';
 import Link from 'next/link';
-import { GetBasePath } from '../lib/path';
-import { imageError } from '../lib/image';
 import { YamlInstrument } from '../pages/instruments';
 import Image from 'next/image';
 import instrumentImage from '../public/images/instrument.jpg';
@@ -13,7 +11,7 @@ type GridItemProps = {
 };
 
 const GridItem = ({ section, item, itemIndex }: GridItemProps) => (
-  <Link href={`/${section}/[itemId]`} as={`/${section}/${item.page}`} className={styles.item}>
+  <Link className={styles.item} href={`/${section}/[itemId]`} as={`/${section}/${item.page}`}>
     <div className={styles.itemImage}>
       <Image src={instrumentImage} alt={item.name} layout="responsive"></Image>
     </div>

@@ -13,8 +13,25 @@
   margin-bottom: 2rem;
 }
 
+.filters form:nth-of-type(1) {
+  width: 250px;
+}
+
+.filters form:nth-of-type(2) {
+  width: 240px;
+}
+
+.filters form:nth-of-type(3) {
+  width: 140px;
+}
+
+.filters form:nth-of-type(4) {
+  width: 170px;
+}
+
 .filterTitle {
-  margin-right: 1rem;
+  display: inline-block;
+  margin: 0 1rem 1rem 0;
 }
 
 .filterDropdown {
