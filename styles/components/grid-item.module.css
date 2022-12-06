@@ -11,6 +11,11 @@
   box-shadow: 0 0 2rem #aaa;
 }
 
+.itemImage img {
+  height: auto;
+  width: 100%;
+}
+
 .itemDetails {
   padding: 2rem;
 }

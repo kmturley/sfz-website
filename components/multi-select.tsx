@@ -30,7 +30,7 @@ const MultiSelect = ({ label , values}: MultiSelectProps) => {
       <div className={styles.multiselectCheckboxes} id={label}>
         {
           values.map((value: string, index: number) => (
-            <label className={styles.multiselectLabel} htmlFor={value}><input className={styles.multiselectInput} type="checkbox" id={value} />{value}</label>
+            <label className={styles.multiselectLabel} htmlFor={value} key={value}><input className={styles.multiselectInput} type="checkbox" id={value} />{value}</label>
           ))
         }
       </div>

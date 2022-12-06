@@ -13,7 +13,7 @@ type GridItemProps = {
 const GridItem = ({ section, item, itemIndex }: GridItemProps) => (
   <Link className={styles.item} href={`/${section}/[itemId]`} as={`/${section}/${item.page}`}>
     <div className={styles.itemImage}>
-      <Image src={instrumentImage} alt={item.name} layout="responsive"></Image>
+      <Image src={instrumentImage} alt={item.name}></Image>
     </div>
     <div className={styles.itemDetails}>
       <h3 className={styles.itemName}>{item.name}</h3>

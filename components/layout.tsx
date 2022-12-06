@@ -40,10 +40,6 @@ const Layout = ({ children }: LayoutProps) => {
       <meta name="og:image" content={`${GetBasePath()}/images/digital-instruments.jpg`} />
       <meta name="og:title" content={siteTitle} />
       <meta name="twitter:card" content="summary_large_image" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap"
-        rel="stylesheet"
-      ></link>
       <link rel="apple-touch-icon" sizes="180x180" href={`${GetBasePath()}/icons/apple-touch-icon.png`} />
       <link rel="icon" type="image/png" sizes="32x32" href={`${GetBasePath()}/icons/favicon-32x32.png`} />
       <link rel="icon" type="image/png" sizes="16x16" href={`${GetBasePath()}/icons/favicon-16x16.png`} />
