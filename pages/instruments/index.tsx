@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Banner from '../../components/banner';
 import Layout, { siteTitle } from '../../components/layout';
 import styles from '../../styles/instruments.module.css';
 import instrumentsYaml from '../../data/instruments.yml';
