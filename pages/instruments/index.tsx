@@ -31,7 +31,9 @@ const Instruments = () => {
   const router = useRouter();
 
   const getCategories = () => {
-    return ['Basses','Brass','Drums','Folk','Guitars','Keyboards','Melodic Percussion','Misc','Orchestra','Percussion','Pianos','Strings','Synthesizers','Woodwinds'];
+    return (instrumentsYaml as YamlInstruments).categories.map((category: YamlCategory) => {
+      return category.name;
+    });
   }
 
   const getCompatibilities = () => {
@@ -55,12 +57,18 @@ const Instruments = () => {
   }
 
   const getLicenses = () => {
-    return ['CC0','CC-BY-3.0','CC-BY-4.0','CC-BY-NC-SA-3.0','GPL-3.0','Other'];
+    const licenses: string[] = [];
+    (instrumentsYaml as YamlInstruments).categories.forEach((category: YamlCategory) => {
+      category.instruments.forEach((instrument: YamlInstrument) => {
+        if (!instrument.license || licenses.includes(instrument.license)) return;
+        licenses.push(instrument.license);
+      })
+    });
+    return licenses;
   }
 
   const matchesFilters = (instrument: YamlInstrument) => {
     const params = router.query;
-    console.log(params.license, instrument.license);
     if (params.category && !params.category.includes(toSlug(instrument.category || ''))) return false;
     if (params.license && !params.license.includes(toSlug(instrument.license || ''))) return false;
     // Currently there is not data for these two filters
@@ -81,8 +89,8 @@ const Instruments = () => {
         <span className={styles.filterTitle}>Filter by:</span>
         <MultiSelect label="Category" values={getCategories()}></MultiSelect>
         <MultiSelect label="License" values={getLicenses()}></MultiSelect>
-        <MultiSelect label="Cost" values={getCosts()}></MultiSelect>
-        <MultiSelect label="Compatibility" values={getCompatibilities()}></MultiSelect>
+        {/* <MultiSelect label="Cost" values={getCosts()}></MultiSelect>
+        <MultiSelect label="Compatibility" values={getCompatibilities()}></MultiSelect> */}
       </div>
       <div className={styles.list}>
         {getInstruments().map((instrument: YamlInstrument, itemIndex: number) => (

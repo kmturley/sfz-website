@@ -15,7 +15,6 @@ const MultiSelect = ({ label , values}: MultiSelectProps) => {
     e.target.blur();
     window.focus();
     var checkboxes = document.getElementById(label);
-    console.log(checkboxes?.style.display);
     if (checkboxes?.style.display === 'block') {
       if (checkboxes) checkboxes.style.display = 'none';
     } else {
