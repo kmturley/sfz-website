@@ -1,10 +1,13 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Layout, { siteTitle } from '../../../components/layout';
-import styles from '../../../styles/instruments.module.css';
+import styles from '../../../styles/item.module.css';
 import instrumentsYaml from '../../../data/instruments.yml';
 import { YamlCategory, YamlInstrument, YamlInstruments } from '..';
 import { toSlug } from '../../../lib/utils';
+import Image from 'next/image';
+import instrumentImage from '../../../public/images/instrument.jpg';
+import Link from 'next/link';
 
 const Instrument = () => {
   const router = useRouter();
@@ -14,7 +17,7 @@ const Instrument = () => {
     (instrumentsYaml as YamlInstruments).categories.forEach((category: YamlCategory) => {
       category.slug = toSlug(category.name);
       category.instruments.forEach((instrument: YamlInstrument) => {
-        instrument.category = category.slug;
+        instrument.category = category.name;
         instrument.slug = toSlug(instrument.name);
         if (instrument.slug === instrumentId) match = instrument;
       })
@@ -29,8 +32,29 @@ const Instrument = () => {
       <title>{siteTitle} - Instruments - {instrument.name}</title>
     </Head>
     <section className={styles.section}>
-      <div className={styles.header}>
-        <h2 className={styles.title}>{instrument.name}</h2>
+      <div className={styles.item}>
+        <div className={styles.itemImage}>
+          <Image className={styles.itemImageTag} src={instrumentImage} alt={instrument.name} fill></Image>
+        </div>
+        <div className={styles.itemDetails}>
+          <h3 className={styles.itemName}>{instrument.name}</h3>
+          <p className={styles.itemAuthor}>By <Link href={instrument.url} target="_blank" className={styles.itemLink}>{instrument.author}</Link></p>
+          <p className={styles.itemDesc}>{instrument.short_description}</p>
+          <ul>
+            <li>{instrument.category}</li>
+            <li>{instrument.license}</li>
+            {/* <li>{instrument.cost}</li>
+            <li>{instrument.compatibility}</li> */}
+          </ul>
+        </div>
+      </div>
+      <div className={styles.files}>
+        <div className={styles.filePreviews}>
+          {/* <audio src={instrument.audio} controls preload="true"></audio> */}
+        </div>
+        <div className={styles.fileDownloads}>
+          {/* <p>{instrument.file}</p> */}
+        </div>
       </div>
     </section>
   </Layout>

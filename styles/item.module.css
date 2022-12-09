@@ -1,0 +1,40 @@
+.section {
+  margin-top: 90px;
+}
+
+.item {
+  background-color: #fff;
+}
+
+.itemImage {
+  min-height: 15rem;
+  position: relative;
+}
+
+.itemImageTag {
+  object-fit: cover;
+}
+
+.itemDetails {
+  padding: 2rem;
+}
+
+.itemName {
+  margin: 0;
+}
+
+.itemLink {
+  color: #1A4BAA;
+}
+
+@media (min-width: 48rem) {
+  .item {
+    display: flex;
+  }
+  .itemImage {
+    width: 40%;
+  }
+  .itemDetails {
+    width: 60%;
+  }
+}

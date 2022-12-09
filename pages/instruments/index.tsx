@@ -49,7 +49,7 @@ const Instruments = () => {
     (instrumentsYaml as YamlInstruments).categories.forEach((category: YamlCategory) => {
       category.slug = toSlug(category.name);
       category.instruments.forEach((instrument: YamlInstrument) => {
-        instrument.category = category.slug;
+        instrument.category = category.name;
         instrument.slug = toSlug(instrument.name);
         if (!matchesFilters(instrument)) return;
         instruments.push(instrument);
