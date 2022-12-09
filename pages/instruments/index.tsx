@@ -5,22 +5,22 @@ import styles from '../../styles/instruments.module.css';
 import instrumentsYaml from '../../data/instruments.yml';
 import GridItem from '../../components/grid-item';
 import MultiSelect from '../../components/multi-select';
-import { toSlug } from '../../lib/utils';
+import { includesValue, toSlug } from '../../lib/utils';
 
 export type YamlInstrument = {
   author: string;
-  category?: string;
+  category: string;
   license: string;
   name: string;
-  page: string;
   short_description: string;
+  slug: string;
   url: string;
 };
 
 export type YamlCategory = {
+  slug: string;
   instruments: YamlInstrument[];
   name: string;
-  page: string;
 };
 
 export type YamlInstruments = {
@@ -47,8 +47,10 @@ const Instruments = () => {
   const getInstruments = () => {
     const instruments: YamlInstrument[] = [];
     (instrumentsYaml as YamlInstruments).categories.forEach((category: YamlCategory) => {
+      category.slug = toSlug(category.name);
       category.instruments.forEach((instrument: YamlInstrument) => {
-        instrument.category = category.page;
+        instrument.category = category.slug;
+        instrument.slug = toSlug(instrument.name);
         if (!matchesFilters(instrument)) return;
         instruments.push(instrument);
       })
@@ -68,12 +70,11 @@ const Instruments = () => {
   }
 
   const matchesFilters = (instrument: YamlInstrument) => {
-    const params = router.query;
-    if (params.category && !params.category.includes(toSlug(instrument.category || ''))) return false;
-    if (params.license && !params.license.includes(toSlug(instrument.license || ''))) return false;
+    if (router.query['category'] && !includesValue(router.query['category'], instrument.category)) return false;
+    if (router.query['license'] && !includesValue(router.query['license'], instrument.license)) return false;
     // Currently there is not data for these two filters
-    // if (params.cost && !params.cost.includes(instrument.cost || '')) return false;
-    // if (params.compatibility && !params.compatibility.includes(instrument.compatibility || '')) return false;
+    // if (router.query['cost'] && includesValue(router.query['cost'], instrument.cost)) return false;
+    // if (router.query['compatibility'] && includesValue(router.query['compatibility'], instrument.compatibility)) return false;
     return true;
   }
 
@@ -98,7 +99,7 @@ const Instruments = () => {
             section="instruments"
             item={instrument}
             itemIndex={itemIndex}
-            key={`${instrument.page}-${itemIndex}`}
+            key={`${instrument.slug}-${itemIndex}`}
         ></GridItem>
         ))}
       </div>

@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { toSlug } from '../lib/utils';
+import { includesValue, toSlug } from '../lib/utils';
 import styles from '../styles/components/multi-select.module.css';
 
 type MultiSelectProps = {
@@ -9,6 +9,7 @@ type MultiSelectProps = {
 
 const MultiSelect = ({ label , values}: MultiSelectProps) => {
   const router = useRouter();
+  const slug: string = toSlug(label);
 
   const showCheckboxes = (e: any) => {
     e.preventDefault();
@@ -23,11 +24,11 @@ const MultiSelect = ({ label , values}: MultiSelectProps) => {
   }
 
   const isChecked = (value: string) => {
-    return router.query[toSlug(label)]?.includes(toSlug(value));
+    if (!router.query[slug]) return false;
+    return includesValue(router.query[slug], value);
   }
 
   const updateUrl = () => {
-    const slug: string = toSlug(label);
     const form: HTMLFormElement = document.getElementById(slug) as HTMLFormElement;
     router.query[slug] = Array.from(new FormData(form).keys());
     router.push({
@@ -37,7 +38,7 @@ const MultiSelect = ({ label , values}: MultiSelectProps) => {
   }
 
   return(
-    <form className={styles.multiselect} id={toSlug(label)}>
+    <form className={styles.multiselect} id={slug}>
       <select className={styles.multiselectTitle} onMouseDown={showCheckboxes}>
         <option>{label}</option>
       </select>

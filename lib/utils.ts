@@ -1,9 +1,17 @@
 import slugify from 'slugify';
 
+function includesValue(items: any, value: string) {
+  if (typeof items === 'string') {
+    return items === toSlug(value);
+  } else {
+    return items.includes(toSlug(value));
+  }
+}
+
 function toSlug(input: string) {
-  return slugify(input, {
+  return slugify(input || '', {
     lower: true
   })
 }
 
-export { toSlug };
+export { includesValue, toSlug };
