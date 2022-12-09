@@ -1,9 +1,11 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import Layout, { siteTitle } from '../../components/layout';
 import styles from '../../styles/instruments.module.css';
 import instrumentsYaml from '../../data/instruments.yml';
 import GridItem from '../../components/grid-item';
 import MultiSelect from '../../components/multi-select';
+import { toSlug } from '../../lib/utils';
 
 export type YamlInstrument = {
   author: string;
@@ -26,6 +28,7 @@ export type YamlInstruments = {
 };
 
 const Instruments = () => {
+  const router = useRouter();
 
   const getCategories = () => {
     return ['Basses','Brass','Drums','Folk','Guitars','Keyboards','Melodic Percussion','Misc','Orchestra','Percussion','Pianos','Strings','Synthesizers','Woodwinds'];
@@ -44,6 +47,7 @@ const Instruments = () => {
     (instrumentsYaml as YamlInstruments).categories.forEach((category: YamlCategory) => {
       category.instruments.forEach((instrument: YamlInstrument) => {
         instrument.category = category.page;
+        if (!matchesFilters(instrument)) return;
         instruments.push(instrument);
       })
     });
@@ -52,6 +56,17 @@ const Instruments = () => {
 
   const getLicenses = () => {
     return ['CC0','CC-BY-3.0','CC-BY-4.0','CC-BY-NC-SA-3.0','GPL-3.0','Other'];
+  }
+
+  const matchesFilters = (instrument: YamlInstrument) => {
+    const params = router.query;
+    console.log(params.license, instrument.license);
+    if (params.category && !params.category.includes(toSlug(instrument.category || ''))) return false;
+    if (params.license && !params.license.includes(toSlug(instrument.license || ''))) return false;
+    // Currently there is not data for these two filters
+    // if (params.cost && !params.cost.includes(instrument.cost || '')) return false;
+    // if (params.compatibility && !params.compatibility.includes(instrument.compatibility || '')) return false;
+    return true;
   }
 
   return (<Layout>

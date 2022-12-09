@@ -9,19 +9,17 @@ type MultiSelectProps = {
 
 const MultiSelect = ({ label , values}: MultiSelectProps) => {
   const router = useRouter();
-  let expanded = false;
 
   const showCheckboxes = (e: any) => {
     e.preventDefault();
     e.target.blur();
     window.focus();
     var checkboxes = document.getElementById(label);
-    if (!expanded) {
-      if (checkboxes) checkboxes.style.display = 'block';
-      expanded = true;
-    } else {
+    console.log(checkboxes?.style.display);
+    if (checkboxes?.style.display === 'block') {
       if (checkboxes) checkboxes.style.display = 'none';
-      expanded = false;
+    } else {
+      if (checkboxes) checkboxes.style.display = 'block';
     }
   }
 
