@@ -4,7 +4,7 @@
   display: block;
   font-size: 1.5rem;
   font-weight: 500;
-  padding: 1.75rem;
+  padding: 1.5rem;
   text-decoration: none;
   transition: border .25s ease-out;
 }
@@ -41,7 +41,7 @@
 .menuIcn {
   cursor: pointer;
   float: right;
-  padding: 2.75rem 2rem;
+  padding: 2.2rem 1.5rem;
   position: relative;
   user-select: none;
 }
@@ -49,10 +49,10 @@
 .menuIcn .menuNavIcn {
   background: #fff;
   display: block;
-  height: 4px;
+  height: 3px;
   position: relative;
   transition: background .2s ease-out;
-  width: 30px;
+  width: 1.75rem;
 }
 
 .menuIcn .menuNavIcn:before,
@@ -67,11 +67,11 @@
 }
 
 .menuIcn .menuNavIcn:before {
-  top: 10px;
+  top: .6rem;
 }
 
 .menuIcn .menuNavIcn:after {
-  top: -10px;
+  top: -.6rem;
 }
 
 .menuBtn {
@@ -79,7 +79,7 @@
 }
 
 .menuBtn:checked ~ .menu {
-  max-height: 280px;
+  max-height: 330px;
 }
 
 .menuBtn:checked ~ .menuIcn .menuNavIcn {

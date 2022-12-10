@@ -11,27 +11,44 @@ const HowItWorks = () => (
         loading="lazy"
         /> works</h2>
       <div className={styles.table}>
-        <div className={styles.column}>
+        <div className={styles.row}>
           <div className={styles.panel}>
             <span className={styles.number}>1</span>
             <p className={styles.description}>Sound recordings of instruments are split into individual audio files for quick access sampling.</p>
           </div>
+          <div className={styles.diagram}>
+            <img
+              src={`${GetBasePath()}/images/sfz-samples.png`}
+              alt="sfz samples"
+              loading="lazy"
+              />
+          </div>
+        </div>
+        <div className={styles.row}>
           <div className={styles.panel}>
             <span className={styles.number}>2</span>
             <p className={styles.description}>Simple text codes in an .sfz file define when, and how the collection of samples should be played.</p>
           </div>
+          <div className={styles.diagram}>
+            <img
+              src={`${GetBasePath()}/images/sfz-file.png`}
+              alt="sfz file"
+              loading="lazy"
+              />
+          </div>
+        </div>
+        <div className={styles.row}>
           <div className={styles.panel}>
             <span className={styles.number}>3</span>
             <p className={styles.description}>Midi input is processed by an sfz player and mapped audio samples are played back in realtime.</p>
           </div>
-        </div>
-        <div className={styles.column}>
-          <img
-            className={styles.diagram}
-            src={`${GetBasePath()}/images/diagram.png`}
-            alt="How it works diagram"
-            loading="lazy"
-            />
+          <div className={styles.diagram}>
+            <img
+              src={`${GetBasePath()}/images/sfz-player.png`}
+              alt="sfz player"
+              loading="lazy"
+              />
+          </div>
         </div>
       </div>
     </div>

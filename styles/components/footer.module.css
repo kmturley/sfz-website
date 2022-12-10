@@ -1,14 +1,17 @@
 .section {
   background-color: #2D2D2D;
-  padding: 2rem;
+  padding: 2rem 1.5rem;
   scroll-snap-align: start;
 }
 
 .container {
+  align-items: center;
+  display: flex;
   margin: 0 auto;
   max-width: 90rem;
 }
 
 .link {
-  margin-right: 2rem;
+  display: flex;
+  margin-right: 1.5rem;
 }

@@ -1,5 +1,5 @@
 .section {
-  margin-top: 90px;
+  margin-top: 75px;
 }
 
 .item {
@@ -7,6 +7,7 @@
 }
 
 .itemImage {
+  display: block;
   min-height: 15rem;
   position: relative;
 }
@@ -16,15 +17,12 @@
 }
 
 .itemDetails {
-  padding: 2rem;
+  padding: 2rem 1.5rem;
+  word-wrap: break-word;
 }
 
 .itemName {
   margin: 0;
-}
-
-.itemLink {
-  color: #1A4BAA;
 }
 
 @media (min-width: 48rem) {
@@ -35,6 +33,7 @@
     width: 40%;
   }
   .itemDetails {
+    padding: 4rem 3rem;
     width: 60%;
   }
 }

@@ -1,5 +1,5 @@
 import styles from '../styles/components/navigation.module.css';
-import { GetBasePath, IsSelected } from '../lib/path';
+import { IsSelected } from '../lib/path';
 import Link from 'next/link';
 
 const Navigation = () => (
@@ -10,22 +10,22 @@ const Navigation = () => (
     </label>
     <ul className={styles.menu}>
       <li>
-        <Link href={`/instruments`} className={`${styles.navItem} ${IsSelected('/instruments')}`}>
+        <Link href="/instruments" className={`${styles.navItem} ${IsSelected('/instruments')}`}>
           instruments
         </Link>
       </li>
       <li>
-        <Link href={`/players`} className={`${styles.navItem} ${IsSelected('/players')}`}>
+        <Link href="/players" className={`${styles.navItem} ${IsSelected('/players')}`}>
           players
         </Link>
       </li>
       <li>
-        <Link href={`/tools`} className={`${styles.navItem} ${IsSelected('/tools')}`}>
+        <Link href="/tools" className={`${styles.navItem} ${IsSelected('/tools')}`}>
           tools
         </Link>
       </li>
       <li>
-        <Link href={`/documentation`} className={`${styles.navItem} ${IsSelected('/documentation')}`}>
+        <Link href="/documentation" className={`${styles.navItem} ${IsSelected('/documentation')}`}>
           documentation
         </Link>
       </li>

@@ -6,12 +6,12 @@ const GetStarted = () => (
   <section className={styles.section}>
     <div className={styles.container}>
       <div className={styles.column}>
-        <h2>Get started with <img
+        <h3>Get started with <img
           className={styles.logo}
           src={`${GetBasePath()}/images/sfz-logo.svg`}
           alt="sfz"
           loading="lazy"
-          /></h2>
+          /></h3>
        </div>
        <div className={styles.column}>
           <p className={styles.item}><Link href="/instruments" className={styles.link}>Browse instruments <span className={styles.arrow}>&#8227;</span></Link></p>

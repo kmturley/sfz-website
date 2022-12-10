@@ -1,8 +1,10 @@
 .section {
   background-color: #000;
+  background-image: url(../../public/images/digital-instruments-mobile.jpg);
   background-position: center;
   background-size: cover;
-  padding: 1.5rem;
+  padding: 7rem 1.5rem;
+  margin-top: 75px;
   scroll-snap-align: start;
 }
 
@@ -20,34 +22,30 @@
 .sfzLogo {
   text-align: center;
   vertical-align: text-top;
-  width: 52px;
+  width: 50px;
 }
 
 .section p {
   color: #fff;
   font-size: 2rem;
   font-weight: 600;
+  line-height: 1.25em;
 }
 
 @media (min-width: 48rem) {
-
   .section {
     background-image: url(../../public/images/digital-instruments.jpg);
+    margin-top: 0;
+    padding: 15rem 1.5rem;
   }
 
   .image {
     display: none;
   }
 
-  .section {
-    padding-bottom: 15rem;
-    padding-top: 15rem;
-  }
-
   .section p {
     font-size: 3rem;
     line-height: 3.5rem;
-    letter-spacing: -2px;
   }
 
   .section .sfzLogo {

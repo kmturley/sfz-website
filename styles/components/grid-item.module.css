@@ -2,6 +2,8 @@
   background-color: #fff;
   border-radius: 1.25rem;
   color: #000;
+  display: block;
+  margin-bottom: 1rem;
   overflow: hidden;
   text-decoration: none;
   transition: box-shadow .25s ease-out;
@@ -12,12 +14,14 @@
 }
 
 .itemImage img {
+  display: block;
   height: auto;
   width: 100%;
 }
 
 .itemDetails {
-  padding: 2rem;
+  padding: 1.5rem;
+  word-wrap: break-word;
 }
 
 .itemName {
@@ -31,4 +35,13 @@
 
 .itemView {
   margin-bottom: 0;
+}
+
+@media (min-width: 48rem) {
+  .item {
+    margin-bottom: 0;
+  }
+  .itemDetails {
+    padding: 2rem;
+  }
 }

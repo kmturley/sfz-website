@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Layout, { siteTitle } from '../../components/layout';
-import styles from '../../styles/instruments.module.css';
+import styles from '../../styles/list.module.css';
 import instrumentsYaml from '../../data/instruments.yml';
 import GridItem from '../../components/grid-item';
 import MultiSelect from '../../components/multi-select';
@@ -36,13 +36,13 @@ const Instruments = () => {
     });
   }
 
-  const getCompatibilities = () => {
-    return ['Bassmidi','sforzando','sfizz'];
-  }
+  // const getCompatibilities = () => {
+  //   return ['Bassmidi','sforzando','sfizz'];
+  // }
 
-  const getCosts = () => {
-    return ['Free','$0-$9','$10-$29','$30-$49','$50+'];
-  }
+  // const getCosts = () => {
+  //   return ['Free','$0-$9','$10-$29','$30-$49','$50+'];
+  // }
 
   const getInstruments = () => {
     const instruments: YamlInstrument[] = [];
@@ -84,7 +84,7 @@ const Instruments = () => {
     </Head>
     <section className={styles.section}>
       <div className={styles.header}>
-        <h2 className={styles.title}>Instruments</h2>
+        <h1 className={styles.title}>Instruments</h1>
       </div>
       <div className={styles.filters}>
         <span className={styles.filterTitle}>Filter by:</span>

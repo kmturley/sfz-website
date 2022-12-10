@@ -4,12 +4,6 @@ import { GetBasePath } from '../lib/path';
 const Banner = () => (
   <section className={styles.section}>
     <div className={styles.container}>
-    <img
-        className={styles.image}
-        src={`${GetBasePath()}/images/digital-instruments-mobile.jpg`}
-        alt="Digital instruments"
-        loading="lazy"
-      />
       <p>
         <img
         className={styles.sfzLogo}

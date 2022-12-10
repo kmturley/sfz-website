@@ -7,8 +7,10 @@ html {
 body {
   background-color: #f4f4f4;
   color: #000;
+  font-size: 16px;
   font-family: 'Inter', sans-serif;
   font-weight: 300;
+  line-height: 1.5em;
   margin: 0;
 }
 
@@ -16,8 +18,10 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+h6 {
   font-weight: 600;
+  line-height: 1.25em;
 }
 
 h1,
@@ -25,45 +29,25 @@ h2,
 h3,
 h4,
 h5,
+h6,
 p {
-  line-height: 1.15em;
-  margin: 0 0 1.25rem 0;
+    margin: 0 0 0.5rem 0;
 }
 
-p {
-  font-size: 18px;
-  font-weight: 300;
-  line-height: 1.5em;
-}
+h1 { font-size: 2.5em; } /* 16px x 2.5  = 40px */
+h2 { font-size: 2.25em; }/* 16px x 2.25 = 36px */
+h3 { font-size: 2em; }   /* 16px x 2    = 32px */
+h4 { font-size: 1.75em; }/* 16px x 1.75 = 28px */
+h5 { font-size: 1.5em; } /* 16px x 1.5  = 24px */
+h6 { font-size: 1em; }   /* 16px x 1    = 16px */
 
-h1 {
-  font-size: 40px;
-}
-
-h2 {
-  font-size: 32px;
-}
-
-h3 {
-  font-size: 24px;
-}
-
-h4 {
-  font-size: 20px;
+a {
+  color: #1A4BAA;
 }
 
 @media (min-width: 48rem) {
-  h1 {
-    font-size: 56px;
-  }
-  h2 {
-    font-size: 48px;
-  }
-  h3 {
-    font-size: 32px;
-  }
-  h4 {
-    font-size: 24px;
+  body {
+    font-size: 18px;
   }
 }
 

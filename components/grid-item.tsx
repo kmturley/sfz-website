@@ -16,7 +16,7 @@ const GridItem = ({ section, item, itemIndex }: GridItemProps) => (
       <Image src={instrumentImage} alt={item.name}></Image>
     </div>
     <div className={styles.itemDetails}>
-      <h3 className={styles.itemName}>{item.name}</h3>
+      <h4 className={styles.itemName}>{item.name}</h4>
       <p className={styles.itemAuthor}>By <span className={styles.itemLink}>{item.author}</span></p>
       <p className={styles.itemDesc}>
         { item.short_description && item.short_description.length > 105
