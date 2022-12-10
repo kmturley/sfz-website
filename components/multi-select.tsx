@@ -39,7 +39,7 @@ const MultiSelect = ({ label , values}: MultiSelectProps) => {
 
   return(
     <form className={styles.multiselect} id={slug}>
-      <select className={styles.multiselectTitle} onMouseDown={showCheckboxes}>
+      <select className={`${styles.multiselectTitle} ${styles['icon-' + slug]}`} onMouseDown={showCheckboxes}>
         <option>{label}</option>
       </select>
       <div className={styles.multiselectCheckboxes} id={label}>
