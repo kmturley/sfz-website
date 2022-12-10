@@ -6,6 +6,9 @@ const nextConfig = {
   generateBuildId: async () => {
     return 'latest'
   },
+  images: {
+    unoptimized: true,
+  },
   reactStrictMode: true,
   swcMinify: true,
 }

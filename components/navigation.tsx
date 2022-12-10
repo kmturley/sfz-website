@@ -10,22 +10,22 @@ const Navigation = () => (
     </label>
     <ul className={styles.menu}>
       <li>
-        <Link href={`${GetBasePath()}/instruments`} className={`${styles.navItem} ${IsSelected('/instruments')}`}>
+        <Link href={`/instruments`} className={`${styles.navItem} ${IsSelected('/instruments')}`}>
           instruments
         </Link>
       </li>
       <li>
-        <Link href={`${GetBasePath()}/players`} className={`${styles.navItem} ${IsSelected('/players')}`}>
+        <Link href={`/players`} className={`${styles.navItem} ${IsSelected('/players')}`}>
           players
         </Link>
       </li>
       <li>
-        <Link href={`${GetBasePath()}/tools`} className={`${styles.navItem} ${IsSelected('/tools')}`}>
+        <Link href={`/tools`} className={`${styles.navItem} ${IsSelected('/tools')}`}>
           tools
         </Link>
       </li>
       <li>
-        <Link href={`${GetBasePath()}/documentation`} className={`${styles.navItem} ${IsSelected('/documentation')}`}>
+        <Link href={`/documentation`} className={`${styles.navItem} ${IsSelected('/documentation')}`}>
           documentation
         </Link>
       </li>
