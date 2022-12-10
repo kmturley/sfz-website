@@ -8,6 +8,7 @@ import { toSlug } from '../../../lib/utils';
 import Image from 'next/image';
 import instrumentImage from '../../../public/images/instrument.jpg';
 import Link from 'next/link';
+import { GetBasePath } from '../../../lib/path';
 
 const Instrument = () => {
   const router = useRouter();
@@ -40,11 +41,43 @@ const Instrument = () => {
           <h3 className={styles.itemName}>{instrument.name}</h3>
           <p className={styles.itemAuthor}>By <Link href={instrument.url} target="_blank" className={styles.itemLink}>{instrument.author}</Link></p>
           <p className={styles.itemDesc}>{instrument.short_description}</p>
-          <ul>
-            <li>{instrument.category}</li>
-            <li>{instrument.license}</li>
-            {/* <li>{instrument.cost}</li>
-            <li>{instrument.compatibility}</li> */}
+          <ul className={styles.attributes}>
+            <li className={styles.attribute}>
+              <img
+                className={styles.icon}
+                src={`${GetBasePath()}/images/icon-category.svg`}
+                alt="Category"
+                loading="lazy"
+                />
+              {instrument.category}
+            </li>
+            <li className={styles.attribute}>
+              <img
+                className={styles.icon}
+                src={`${GetBasePath()}/images/icon-license.svg`}
+                alt="License"
+                loading="lazy"
+                />
+              {instrument.license}
+            </li>
+            {/* <li className={styles.attribute}>
+                <img
+                    className={styles.icon}
+                    src={`${GetBasePath()}/images/icon-cost.svg`}
+                    alt="Cost"
+                    loading="lazy"
+                    />
+                {instrument.cost}
+            </li>
+            <li className={styles.attribute}>
+              <img
+                className={styles.icon}
+                src={`${GetBasePath()}/images/icon-compatibility.svg`}
+                alt="Compatibility"
+                loading="lazy"
+                />
+              {instrument.compatibility}
+            </li> */}
           </ul>
         </div>
       </div>
