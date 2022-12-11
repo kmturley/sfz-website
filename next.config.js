@@ -3,6 +3,7 @@ const withYaml = require('next-plugin-yaml');
 
 const nextConfig = {
   basePath: (process.env.NODE_ENV === 'production') ? '/sfz-website' : '',
+  trailingSlash: true,
   generateBuildId: async () => {
     return 'latest'
   },
