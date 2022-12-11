@@ -67,8 +67,8 @@ const Application = () => {
                     alt="Platform"
                     loading="lazy"
                     />
-                {application.os.map((system: any) => (
-                  <span>{system.name}, </span>
+                {application.os.map((system: any, systemIndex: number) => (
+                  <span key={`${toSlug(system.name)}-${systemIndex}`}>{system.name}, </span>
                 ))}
             </li>
           </ul>

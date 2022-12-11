@@ -1,9 +1,9 @@
 import slugify from 'slugify';
 
-function includesValue(items: string | string[], value: string) {
+function includesValue(items: string | string[] | undefined, value: string) {
   if (typeof items === 'string') {
     return items === toSlug(value);
-  } else {
+  } else if (typeof items === 'object') {
     return items.includes(toSlug(value));
   }
 }
