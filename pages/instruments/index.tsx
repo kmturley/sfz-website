@@ -13,9 +13,9 @@ const Instruments = () => {
 
   const getInstrumentsFiltered = () => {
     return getInstruments().filter((instrument: YamlInstrument) => {
-        return matchesFilters(instrument) ? instrument : false;
+      return matchesFilters(instrument) ? instrument : false;
     });
-  }
+  };
 
   const matchesFilters = (instrument: YamlInstrument) => {
     if (router.query['category'] && !includesValue(router.query['category'], instrument.category)) return false;
@@ -24,36 +24,37 @@ const Instruments = () => {
     // if (router.query['cost'] && includesValue(router.query['cost'], instrument.cost)) return false;
     // if (router.query['compatibility'] && includesValue(router.query['compatibility'], instrument.compatibility)) return false;
     return true;
-  }
+  };
 
-  return (<Layout>
-    <Head>
-      <title>{siteTitle} - Instruments</title>
-    </Head>
-    <section className={styles.section}>
-      <div className={styles.header}>
-        <h1 className={styles.title}>Instruments</h1>
-      </div>
-      <div className={styles.filters}>
-        <span className={styles.filterTitle}>Filter by:</span>
-        <MultiSelect label="Category" values={getInstrumentCategories()}></MultiSelect>
-        <MultiSelect label="License" values={getInstrumentLicenses()}></MultiSelect>
-        {/* <MultiSelect label="Cost" values={getInstrumentCosts()}></MultiSelect>
+  return (
+    <Layout>
+      <Head>
+        <title>{siteTitle} - Instruments</title>
+      </Head>
+      <section className={styles.section}>
+        <div className={styles.header}>
+          <h1 className={styles.title}>Instruments</h1>
+        </div>
+        <div className={styles.filters}>
+          <span className={styles.filterTitle}>Filter by:</span>
+          <MultiSelect label="Category" values={getInstrumentCategories()}></MultiSelect>
+          <MultiSelect label="License" values={getInstrumentLicenses()}></MultiSelect>
+          {/* <MultiSelect label="Cost" values={getInstrumentCosts()}></MultiSelect>
         <MultiSelect label="Compatibility" values={getInstrumentCompatibilities()}></MultiSelect> */}
-      </div>
-      <div className={styles.list}>
-        {getInstrumentsFiltered().map((instrument: YamlInstrument, itemIndex: number) => (
-          <GridItem
-            section="instruments"
-            item={instrument}
-            itemIndex={itemIndex}
-            key={`${instrument.slug}-${itemIndex}`}
-        ></GridItem>
-        ))}
-      </div>
-    </section>
-  </Layout>
-  )
-}
+        </div>
+        <div className={styles.list}>
+          {getInstrumentsFiltered().map((instrument: YamlInstrument, itemIndex: number) => (
+            <GridItem
+              section="instruments"
+              item={instrument}
+              itemIndex={itemIndex}
+              key={`${instrument.slug}-${itemIndex}`}
+            ></GridItem>
+          ))}
+        </div>
+      </section>
+    </Layout>
+  );
+};
 
 export default Instruments;

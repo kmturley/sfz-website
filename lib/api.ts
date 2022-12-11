@@ -1,11 +1,18 @@
 import instrumentsYaml from '../data/instruments.yml';
 import softwareYaml from '../data/software.yml';
-import { YamlCategory, YamlInstrument, YamlInstruments, YamlApplication, YamlSoftware, YamlSoftwareCategory } from './types';
+import {
+  YamlCategory,
+  YamlInstrument,
+  YamlInstruments,
+  YamlApplication,
+  YamlSoftware,
+  YamlSoftwareCategory,
+} from './types';
 import { toSlug } from './utils';
 
 function getInstrument(instrumentId: string | string[] | undefined) {
   return getInstruments().filter((instrument: YamlInstrument) => {
-      return instrument.slug === instrumentId ? instrument : false;
+    return instrument.slug === instrumentId ? instrument : false;
   })[0];
 }
 
@@ -17,12 +24,12 @@ function getInstrumentCategories() {
 
 function getInstrumentCompatibilities() {
   // TODO load from instruments.yml file when attributes are available
-  return ['Bassmidi','sforzando','sfizz'];
+  return ['Bassmidi', 'sforzando', 'sfizz'];
 }
 
 function getInstrumentCosts() {
   // TODO load from instruments.yml file when attributes are available
-  return ['Free','$0-$9','$10-$29','$30-$49','$50+'];
+  return ['Free', '$0-$9', '$10-$29', '$30-$49', '$50+'];
 }
 
 function getInstrumentLicenses() {
@@ -31,7 +38,7 @@ function getInstrumentLicenses() {
     category.instruments.forEach((instrument: YamlInstrument) => {
       if (!instrument.license || licenses.includes(instrument.license)) return;
       licenses.push(instrument.license);
-    })
+    });
   });
   return licenses;
 }
@@ -64,7 +71,7 @@ function getSoftware() {
 
 function getSoftwareApplication(applicationId: string | string[] | undefined) {
   return getSoftware().filter((application: YamlInstrument) => {
-      return application.slug === applicationId ? application : false;
+    return application.slug === applicationId ? application : false;
   })[0];
 }
 
@@ -100,5 +107,5 @@ export {
   getSoftwareApplication,
   getSoftwareCategories,
   getSoftwareLicenses,
-  getSoftwarePlatforms
+  getSoftwarePlatforms,
 };

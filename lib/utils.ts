@@ -10,8 +10,8 @@ function includesValue(items: string | string[] | undefined, value: string) {
 
 function toSlug(input: string) {
   return slugify(input || '', {
-    lower: true
-  })
+    lower: true,
+  });
 }
 
 export { includesValue, toSlug };

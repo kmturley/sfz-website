@@ -1,4 +1,3 @@
-
 export type YamlCategory = {
   slug: string;
   instruments: YamlInstrument[];

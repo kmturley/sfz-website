@@ -14,7 +14,7 @@ type LayoutProps = {
 };
 
 const Layout = ({ children }: LayoutProps) => {
-  const router = useRouter()
+  const router = useRouter();
   const [bgTransparent, setBgTransparent] = useState(false);
 
   const updateNav = () => {
@@ -23,7 +23,7 @@ const Layout = ({ children }: LayoutProps) => {
     } else {
       setBgTransparent(false);
     }
-  }
+  };
 
   useEffect(() => {
     if (router.pathname === '/') {
@@ -31,37 +31,38 @@ const Layout = ({ children }: LayoutProps) => {
       window.addEventListener('scroll', updateNav);
       window.addEventListener('resize', updateNav);
     }
-  })
+  });
 
-  return (<div className={styles.container}>
-    <Head>
-      <title>{siteTitle}</title>
-      <meta name="description" content={siteDesc} />
-      <meta name="og:image" content={`${GetBasePath()}/images/digital-instruments.jpg`} />
-      <meta name="og:title" content={siteTitle} />
-      <meta name="twitter:card" content="summary_large_image" />
-      <link rel="apple-touch-icon" sizes="180x180" href={`${GetBasePath()}/icons/apple-touch-icon.png`} />
-      <link rel="icon" type="image/png" sizes="32x32" href={`${GetBasePath()}/icons/favicon-32x32.png`} />
-      <link rel="icon" type="image/png" sizes="16x16" href={`${GetBasePath()}/icons/favicon-16x16.png`} />
-      <link rel="manifest" href={`${GetBasePath()}/icons/site.webmanifest`}></link>
-    </Head>
-    <header className={`${styles.header} ${bgTransparent ? 'bg-transparent' : ''}`}>
-      <div className={styles.headerInner}>
-        <a href={`${GetBasePath()}/`} className={styles.headerLink}>
-          <img
-            className={styles.logoImage}
-            src={`${GetBasePath()}/images/sfz-logo.svg`}
-            alt={siteTitle}
-            loading="lazy"
-          />
-        </a>
-        <Navigation></Navigation>
-      </div>
-    </header>
-    <main>{children}</main>
-    <Footer></Footer>
-  </div>
-  )
-}
+  return (
+    <div className={styles.container}>
+      <Head>
+        <title>{siteTitle}</title>
+        <meta name="description" content={siteDesc} />
+        <meta name="og:image" content={`${GetBasePath()}/images/digital-instruments.jpg`} />
+        <meta name="og:title" content={siteTitle} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="apple-touch-icon" sizes="180x180" href={`${GetBasePath()}/icons/apple-touch-icon.png`} />
+        <link rel="icon" type="image/png" sizes="32x32" href={`${GetBasePath()}/icons/favicon-32x32.png`} />
+        <link rel="icon" type="image/png" sizes="16x16" href={`${GetBasePath()}/icons/favicon-16x16.png`} />
+        <link rel="manifest" href={`${GetBasePath()}/icons/site.webmanifest`}></link>
+      </Head>
+      <header className={`${styles.header} ${bgTransparent ? 'bg-transparent' : ''}`}>
+        <div className={styles.headerInner}>
+          <a href={`${GetBasePath()}/`} className={styles.headerLink}>
+            <img
+              className={styles.logoImage}
+              src={`${GetBasePath()}/images/sfz-logo.svg`}
+              alt={siteTitle}
+              loading="lazy"
+            />
+          </a>
+          <Navigation></Navigation>
+        </div>
+      </header>
+      <main>{children}</main>
+      <Footer></Footer>
+    </div>
+  );
+};
 
 export default Layout;

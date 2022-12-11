@@ -13,40 +13,48 @@ type InstrumentProps = {
   instrument: YamlInstrument;
 };
 
-const Instrument = ({instrument}: InstrumentProps) => {
-  return <Layout>
-    <Head>
-      <title>{siteTitle} - Instruments - {instrument.name}</title>
-    </Head>
-    <section className={styles.section}>
-      <div className={styles.item}>
-        <div className={styles.itemImage}>
-          <Image className={styles.itemImageTag} src={instrumentImage} alt={instrument.name} fill></Image>
-        </div>
-        <div className={styles.itemDetails}>
-          <h3 className={styles.itemName}>{instrument.name}</h3>
-          <p className={styles.itemAuthor}>By <Link href={instrument.url} target="_blank" className={styles.itemLink}>{instrument.author}</Link></p>
-          <p className={styles.itemDesc}>{instrument.short_description}</p>
-          <ul className={styles.attributes}>
-            <li className={styles.attribute}>
-              <img
-                className={styles.icon}
-                src={`${GetBasePath()}/images/icon-category.svg`}
-                alt="Category"
-                loading="lazy"
+const Instrument = ({ instrument }: InstrumentProps) => {
+  return (
+    <Layout>
+      <Head>
+        <title>
+          {siteTitle} - Instruments - {instrument.name}
+        </title>
+      </Head>
+      <section className={styles.section}>
+        <div className={styles.item}>
+          <div className={styles.itemImage}>
+            <Image className={styles.itemImageTag} src={instrumentImage} alt={instrument.name} fill></Image>
+          </div>
+          <div className={styles.itemDetails}>
+            <h3 className={styles.itemName}>{instrument.name}</h3>
+            <p className={styles.itemAuthor}>
+              By{' '}
+              <Link href={instrument.url} target="_blank" className={styles.itemLink}>
+                {instrument.author}
+              </Link>
+            </p>
+            <p className={styles.itemDesc}>{instrument.short_description}</p>
+            <ul className={styles.attributes}>
+              <li className={styles.attribute}>
+                <img
+                  className={styles.icon}
+                  src={`${GetBasePath()}/images/icon-category.svg`}
+                  alt="Category"
+                  loading="lazy"
                 />
-              {instrument.category}
-            </li>
-            <li className={styles.attribute}>
-              <img
-                className={styles.icon}
-                src={`${GetBasePath()}/images/icon-license.svg`}
-                alt="License"
-                loading="lazy"
+                {instrument.category}
+              </li>
+              <li className={styles.attribute}>
+                <img
+                  className={styles.icon}
+                  src={`${GetBasePath()}/images/icon-license.svg`}
+                  alt="License"
+                  loading="lazy"
                 />
-              {instrument.license}
-            </li>
-            {/* <li className={styles.attribute}>
+                {instrument.license}
+              </li>
+              {/* <li className={styles.attribute}>
                 <img
                     className={styles.icon}
                     src={`${GetBasePath()}/images/icon-cost.svg`}
@@ -64,20 +72,19 @@ const Instrument = ({instrument}: InstrumentProps) => {
                 />
               {instrument.compatibility}
             </li> */}
-          </ul>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div className={styles.files}>
-        <div className={styles.filePreviews}>
-          {/* <audio src={instrument.audio} controls preload="true"></audio> */}
+        <div className={styles.files}>
+          <div className={styles.filePreviews}>
+            {/* <audio src={instrument.audio} controls preload="true"></audio> */}
+          </div>
+          <div className={styles.fileDownloads}>{/* <p>{instrument.file}</p> */}</div>
         </div>
-        <div className={styles.fileDownloads}>
-          {/* <p>{instrument.file}</p> */}
-        </div>
-      </div>
-    </section>
-  </Layout>
-}
+      </section>
+    </Layout>
+  );
+};
 
 export default Instrument;
 
@@ -104,7 +111,7 @@ type Params = {
 export async function getStaticProps({ params }: Params) {
   return {
     props: {
-      instrument: getInstrument(params.instrumentId)
+      instrument: getInstrument(params.instrumentId),
     },
   };
 }
