@@ -2,71 +2,19 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Layout, { siteTitle } from '../../components/layout';
 import styles from '../../styles/list.module.css';
-import instrumentsYaml from '../../data/instruments.yml';
 import GridItem from '../../components/grid-item';
 import MultiSelect from '../../components/multi-select';
-import { includesValue, toSlug } from '../../lib/utils';
-
-export type YamlInstrument = {
-  author: string;
-  category: string;
-  license: string;
-  name: string;
-  short_description: string;
-  slug: string;
-  url: string;
-};
-
-export type YamlCategory = {
-  slug: string;
-  instruments: YamlInstrument[];
-  name: string;
-};
-
-export type YamlInstruments = {
-  categories: YamlCategory[];
-};
+import { includesValue } from '../../lib/utils';
+import { getInstrumentCategories, getInstrumentLicenses, getInstruments } from '../../lib/api';
+import { YamlInstrument } from '../../lib/types';
 
 const Instruments = () => {
   const router = useRouter();
 
-  const getCategories = () => {
-    return (instrumentsYaml as YamlInstruments).categories.map((category: YamlCategory) => {
-      return category.name;
+  const getInstrumentsFiltered = () => {
+    return getInstruments().filter((instrument: YamlInstrument) => {
+        return matchesFilters(instrument) ? instrument : false;
     });
-  }
-
-  // const getCompatibilities = () => {
-  //   return ['Bassmidi','sforzando','sfizz'];
-  // }
-
-  // const getCosts = () => {
-  //   return ['Free','$0-$9','$10-$29','$30-$49','$50+'];
-  // }
-
-  const getInstruments = () => {
-    const instruments: YamlInstrument[] = [];
-    (instrumentsYaml as YamlInstruments).categories.forEach((category: YamlCategory) => {
-      category.slug = toSlug(category.name);
-      category.instruments.forEach((instrument: YamlInstrument) => {
-        instrument.category = category.name;
-        instrument.slug = toSlug(instrument.name);
-        if (!matchesFilters(instrument)) return;
-        instruments.push(instrument);
-      })
-    });
-    return instruments;
-  }
-
-  const getLicenses = () => {
-    const licenses: string[] = [];
-    (instrumentsYaml as YamlInstruments).categories.forEach((category: YamlCategory) => {
-      category.instruments.forEach((instrument: YamlInstrument) => {
-        if (!instrument.license || licenses.includes(instrument.license)) return;
-        licenses.push(instrument.license);
-      })
-    });
-    return licenses;
   }
 
   const matchesFilters = (instrument: YamlInstrument) => {
@@ -88,13 +36,13 @@ const Instruments = () => {
       </div>
       <div className={styles.filters}>
         <span className={styles.filterTitle}>Filter by:</span>
-        <MultiSelect label="Category" values={getCategories()}></MultiSelect>
-        <MultiSelect label="License" values={getLicenses()}></MultiSelect>
-        {/* <MultiSelect label="Cost" values={getCosts()}></MultiSelect>
-        <MultiSelect label="Compatibility" values={getCompatibilities()}></MultiSelect> */}
+        <MultiSelect label="Category" values={getInstrumentCategories()}></MultiSelect>
+        <MultiSelect label="License" values={getInstrumentLicenses()}></MultiSelect>
+        {/* <MultiSelect label="Cost" values={getInstrumentCosts()}></MultiSelect>
+        <MultiSelect label="Compatibility" values={getInstrumentCompatibilities()}></MultiSelect> */}
       </div>
       <div className={styles.list}>
-        {getInstruments().map((instrument: YamlInstrument, itemIndex: number) => (
+        {getInstrumentsFiltered().map((instrument: YamlInstrument, itemIndex: number) => (
           <GridItem
             section="instruments"
             item={instrument}

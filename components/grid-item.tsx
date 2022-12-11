@@ -2,8 +2,7 @@ import styles from '../styles/components/grid-item.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import instrumentImage from '../public/images/instrument.jpg';
-import { YamlInstrument } from '../pages/instruments';
-import { YamlApplication } from '../pages/software';
+import { YamlApplication, YamlInstrument } from '../lib/types';
 
 type GridItemProps = {
   section: string;

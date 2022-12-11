@@ -1,14 +1,13 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import Layout, { siteTitle } from '../../../components/layout';
 import styles from '../../../styles/item.module.css';
-import { YamlApplication } from '..';
 import { toSlug } from '../../../lib/utils';
 import Image from 'next/image';
 import applicationImage from '../../../public/images/application.jpg';
 import Link from 'next/link';
 import { GetBasePath } from '../../../lib/path';
-import { getApplication, getApplications } from '../../../lib/api';
+import { YamlApplication } from '../../../lib/types';
+import { getSoftware, getSoftwareApplication } from '../../../lib/api';
 
 type ApplicationProps = {
   application: YamlApplication;
@@ -76,7 +75,7 @@ const Application = ({application}: ApplicationProps) => {
 export default Application;
 
 export async function getStaticPaths() {
-  const paths: any = getApplications().map((application: YamlApplication) => {
+  const paths: any = getSoftware().map((application: YamlApplication) => {
     return {
       params: {
         applicationId: toSlug(application.name),
@@ -98,7 +97,7 @@ type Params = {
 export async function getStaticProps({ params }: Params) {
   return {
     props: {
-      application: getApplication(params.applicationId)
+      application: getSoftwareApplication(params.applicationId)
     },
   };
 }

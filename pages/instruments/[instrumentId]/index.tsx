@@ -1,14 +1,13 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import Layout, { siteTitle } from '../../../components/layout';
 import styles from '../../../styles/item.module.css';
-import { YamlInstrument } from '..';
 import { toSlug } from '../../../lib/utils';
 import instrumentImage from '../../../public/images/instrument.jpg';
 import { GetBasePath } from '../../../lib/path';
 import { getInstrument, getInstruments } from '../../../lib/api';
+import { YamlInstrument } from '../../../lib/types';
 
 type InstrumentProps = {
   instrument: YamlInstrument;
