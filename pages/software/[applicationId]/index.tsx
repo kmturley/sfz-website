@@ -2,33 +2,20 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Layout, { siteTitle } from '../../../components/layout';
 import styles from '../../../styles/item.module.css';
-import softwareYaml from '../../../data/software.yml';
-import { YamlSoftwareCategory, YamlApplication, YamlSoftware } from '..';
+import { YamlApplication } from '..';
 import { toSlug } from '../../../lib/utils';
 import Image from 'next/image';
 import applicationImage from '../../../public/images/application.jpg';
 import Link from 'next/link';
 import { GetBasePath } from '../../../lib/path';
+import { getApplication, getApplications } from '../../../lib/api';
 
-const Application = () => {
-  const router = useRouter();
+type ApplicationProps = {
+  application: YamlApplication;
+};
 
-  const getApplication = (applicationId: string) => {
-    let match: YamlApplication = (softwareYaml as YamlSoftware).categories[0].applications[0];
-    (softwareYaml as YamlSoftware).categories.forEach((category: YamlSoftwareCategory) => {
-      category.slug = toSlug(category.name);
-      category.applications.forEach((application: YamlApplication) => {
-        application.category = category.name;
-        application.slug = toSlug(application.name);
-        if (application.slug === applicationId) match = application;
-      })
-    });
-    return match;
-  }
-
-  const application: YamlApplication = getApplication(router.query.applicationId as string);
-
-  return (<Layout>
+const Application = ({application}: ApplicationProps) => {
+  return <Layout>
     <Head>
       <title>{siteTitle} - Software - {application.name}</title>
     </Head>
@@ -76,15 +63,42 @@ const Application = () => {
       </div>
       <div className={styles.files}>
         <div className={styles.filePreviews}>
-          {/* <audio src={instrument.audio} controls preload="true"></audio> */}
+          {/* <audio src={application.audio} controls preload="true"></audio> */}
         </div>
         <div className={styles.fileDownloads}>
-          {/* <p>{instrument.file}</p> */}
+          {/* <p>{application.file}</p> */}
         </div>
       </div>
     </section>
   </Layout>
-  )
 }
 
 export default Application;
+
+export async function getStaticPaths() {
+  const paths: any = getApplications().map((application: YamlApplication) => {
+    return {
+      params: {
+        applicationId: toSlug(application.name),
+      },
+    };
+  });
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+type Params = {
+  params: {
+    applicationId: string;
+  };
+};
+
+export async function getStaticProps({ params }: Params) {
+  return {
+    props: {
+      application: getApplication(params.applicationId)
+    },
+  };
+}

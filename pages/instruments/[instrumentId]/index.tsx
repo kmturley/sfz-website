@@ -1,34 +1,21 @@
 import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Layout, { siteTitle } from '../../../components/layout';
 import styles from '../../../styles/item.module.css';
-import instrumentsYaml from '../../../data/instruments.yml';
-import { YamlCategory, YamlInstrument, YamlInstruments } from '..';
+import { YamlInstrument } from '..';
 import { toSlug } from '../../../lib/utils';
-import Image from 'next/image';
 import instrumentImage from '../../../public/images/instrument.jpg';
-import Link from 'next/link';
 import { GetBasePath } from '../../../lib/path';
+import { getInstrument, getInstruments } from '../../../lib/api';
 
-const Instrument = () => {
-  const router = useRouter();
+type InstrumentProps = {
+  instrument: YamlInstrument;
+};
 
-  const getInstrument = (instrumentId: string) => {
-    let match: YamlInstrument = (instrumentsYaml as YamlInstruments).categories[0].instruments[0];
-    (instrumentsYaml as YamlInstruments).categories.forEach((category: YamlCategory) => {
-      category.slug = toSlug(category.name);
-      category.instruments.forEach((instrument: YamlInstrument) => {
-        instrument.category = category.name;
-        instrument.slug = toSlug(instrument.name);
-        if (instrument.slug === instrumentId) match = instrument;
-      })
-    });
-    return match;
-  }
-
-  const instrument: YamlInstrument = getInstrument(router.query.instrumentId as string);
-
-  return (<Layout>
+const Instrument = ({instrument}: InstrumentProps) => {
+  return <Layout>
     <Head>
       <title>{siteTitle} - Instruments - {instrument.name}</title>
     </Head>
@@ -91,7 +78,34 @@ const Instrument = () => {
       </div>
     </section>
   </Layout>
-  )
 }
 
 export default Instrument;
+
+export async function getStaticPaths() {
+  const paths: any = getInstruments().map((instrument: YamlInstrument) => {
+    return {
+      params: {
+        instrumentId: toSlug(instrument.name),
+      },
+    };
+  });
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+type Params = {
+  params: {
+    instrumentId: string;
+  };
+};
+
+export async function getStaticProps({ params }: Params) {
+  return {
+    props: {
+      instrument: getInstrument(params.instrumentId)
+    },
+  };
+}
