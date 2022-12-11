@@ -1,17 +1,18 @@
 import styles from '../styles/components/grid-item.module.css';
 import Link from 'next/link';
-import { YamlInstrument } from '../pages/instruments';
 import Image from 'next/image';
 import instrumentImage from '../public/images/instrument.jpg';
+import { YamlInstrument } from '../pages/instruments';
+import { YamlApplication } from '../pages/software';
 
 type GridItemProps = {
   section: string;
-  item: YamlInstrument;
+  item: YamlInstrument | YamlApplication;
   itemIndex: number;
 };
 
 const GridItem = ({ section, item, itemIndex }: GridItemProps) => (
-  <Link className={styles.item} href={`/${section}/[instrumentId]`} as={`/${section}/${item.slug}`}>
+  <Link className={styles.item} href={`/${section}/[itemId]`} as={`/${section}/${item.slug}`}>
     <div className={styles.itemImage}>
       <Image src={instrumentImage} alt={item.name}></Image>
     </div>

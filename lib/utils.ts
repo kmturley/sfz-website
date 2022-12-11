@@ -1,6 +1,6 @@
 import slugify from 'slugify';
 
-function includesValue(items: any, value: string) {
+function includesValue(items: string | string[], value: string) {
   if (typeof items === 'string') {
     return items === toSlug(value);
   } else {

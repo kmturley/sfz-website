@@ -15,13 +15,8 @@ const Navigation = () => (
         </Link>
       </li>
       <li>
-        <Link href="/players" className={`${styles.navItem} ${IsSelected('/players')}`}>
-          players
-        </Link>
-      </li>
-      <li>
-        <Link href="/tools" className={`${styles.navItem} ${IsSelected('/tools')}`}>
-          tools
+        <Link href="/software" className={`${styles.navItem} ${IsSelected('/software')}`}>
+          software
         </Link>
       </li>
       <li>
