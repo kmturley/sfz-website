@@ -1,3 +1,9 @@
+export type YamlDocument = {
+  slug: string;
+  title: string;
+  content: string;
+};
+
 export type YamlCategory = {
   slug: string;
   instruments: YamlInstrument[];
