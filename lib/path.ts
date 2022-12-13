@@ -16,9 +16,9 @@ function GetCrumbUrl(items: string[], itemToMatch: string) {
 function IsSelected(path: string) {
   const router = useRouter();
   if (path === '/') {
-    return router.asPath === path ? 'active' : '';
+    return router.asPath === path;
   }
-  return router.asPath.startsWith(path) ? 'active' : '';
+  return router.asPath.startsWith(path);
 }
 
 export { GetBasePath, GetCrumbUrl, IsSelected };

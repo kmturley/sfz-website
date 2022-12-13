@@ -10,17 +10,17 @@ const Navigation = () => (
     </label>
     <ul className={styles.menu}>
       <li>
-        <Link href="/instruments" className={`${styles.navItem} ${IsSelected('/instruments')}`}>
+        <Link href="/instruments" className={`${styles.navItem} ${IsSelected('/instruments') ? styles.navItemActive : ''}`}>
           instruments
         </Link>
       </li>
       <li>
-        <Link href="/software" className={`${styles.navItem} ${IsSelected('/software')}`}>
+        <Link href="/software" className={`${styles.navItem} ${IsSelected('/software') ? styles.navItemActive : ''}`}>
           software
         </Link>
       </li>
       <li>
-        <Link href="/documentation" className={`${styles.navItem} ${IsSelected('/documentation')}`}>
+        <Link href="/documentation" className={`${styles.navItem} ${IsSelected('/documentation') ? styles.navItemActive : ''}`}>
           documentation
         </Link>
       </li>
