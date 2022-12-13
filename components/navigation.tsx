@@ -10,7 +10,10 @@ const Navigation = () => (
     </label>
     <ul className={styles.menu}>
       <li>
-        <Link href="/instruments" className={`${styles.navItem} ${IsSelected('/instruments') ? styles.navItemActive : ''}`}>
+        <Link
+          href="/instruments"
+          className={`${styles.navItem} ${IsSelected('/instruments') ? styles.navItemActive : ''}`}
+        >
           instruments
         </Link>
       </li>
@@ -20,7 +23,10 @@ const Navigation = () => (
         </Link>
       </li>
       <li>
-        <Link href="/documentation" className={`${styles.navItem} ${IsSelected('/documentation') ? styles.navItemActive : ''}`}>
+        <Link
+          href="/documentation"
+          className={`${styles.navItem} ${IsSelected('/documentation') ? styles.navItemActive : ''}`}
+        >
           documentation
         </Link>
       </li>

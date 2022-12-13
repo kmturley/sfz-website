@@ -11,7 +11,7 @@ type DocumentationProps = {
     misc: YamlDocument[];
     modulations: YamlDocument[];
     opcodes: YamlDocument[];
-  },
+  };
   tutorials: YamlDocument[];
 };
 
@@ -54,7 +54,7 @@ export async function getStaticProps() {
         modulations: getDocuments('syntax/modulations'),
         opcodes: getDocuments('syntax/opcodes'),
       },
-      tutorials: getDocuments('tutorials')
+      tutorials: getDocuments('tutorials'),
     },
   };
 }

@@ -33,4 +33,4 @@ function getDocumentSlugs(folder: string) {
   return fs.readdirSync(docsDir);
 }
 
-export { getDocument, getDocuments, getDocumentSlugs }
+export { getDocument, getDocuments, getDocumentSlugs };
