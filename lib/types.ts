@@ -1,5 +1,5 @@
 export type YamlDocument = {
-  slug: string;
+  slug: string[];
   title: string;
   content: string;
 };
