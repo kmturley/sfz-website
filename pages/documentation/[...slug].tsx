@@ -17,7 +17,7 @@ const Page = ({ document }: PageProps) => {
 export default Page
 
 export async function getStaticPaths() {
-  const paths: any = getDocumentSlugs().map((slug: string[]) => {
+  const paths: any = getDocumentSlugs('documentation').map((slug: string[]) => {
     return {
       params: { slug: slug },
     };
@@ -38,7 +38,7 @@ export async function getStaticProps({ params }: Params) {
   console.log('getStaticProps', params);
   return {
     props: {
-      document: getDocument(params.slug)
+      document: getDocument('documentation', params.slug)
     },
   };
 }
