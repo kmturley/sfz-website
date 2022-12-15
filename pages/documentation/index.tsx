@@ -22,7 +22,11 @@ const Documentation = ({ slugs }: DocumentationProps) => {
         <div className={styles.row}>
           <h3>Slugs</h3>
           {slugs.map((slug: string[], itemIndex: number) => (
-            <p><a href={`${GetBasePath()}${slug.join('/')}`} key={`${slug}-${itemIndex}`}>{slug.join('/')}</a></p>
+            <p>
+              <a href={`${GetBasePath()}${slug.join('/')}`} key={`${slug}-${itemIndex}`}>
+                {slug.join('/')}
+              </a>
+            </p>
           ))}
         </div>
       </section>
@@ -35,7 +39,7 @@ export default Documentation;
 export async function getStaticProps() {
   return {
     props: {
-      slugs: getDocumentSlugs('documentation')
+      slugs: getDocumentSlugs('documentation'),
     },
   };
 }

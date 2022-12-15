@@ -18,7 +18,7 @@ function getDocument(folder: string, slug: string[]) {
 function getDocuments(folder: string) {
   console.log('getDocuments', folder);
   const slugs: string[][] = getDocumentSlugs(folder);
-  return slugs.map((slug) => getDocument(folder, slug));;
+  return slugs.map((slug) => getDocument(folder, slug));
 }
 
 function getDocumentSlugs(folder: string) {
