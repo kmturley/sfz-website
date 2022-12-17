@@ -1,8 +1,20 @@
 .subnavsection {
   background-color: #fff;
   border-radius: 1.25rem;
+  height: 1rem;
   margin-bottom: .5rem;
-  padding: 2rem;
+  overflow: hidden;
+  padding: 1.5rem;
+  transition: height .25s ease-out;
+}
+
+.subnavsectionActive {
+  height: auto;
+}
+
+.subnav h6 {
+  cursor: pointer;
+  margin-bottom: .75rem;
 }
 
 .subnav ul {
