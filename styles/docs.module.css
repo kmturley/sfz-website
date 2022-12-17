@@ -1,0 +1,28 @@
+.section {
+  padding: 7rem 1.5rem 1.5rem 1.5rem;
+  scroll-snap-align: start;
+}
+
+.container {
+  align-items: flex-start;
+  display: flex;
+  margin: 0 auto;
+  max-width: 90rem;
+}
+
+.sidebar,
+.content {
+  overflow: hidden;
+}
+
+.sidebar {
+  flex-basis: 30%;
+  margin-right: 2rem;
+}
+
+.content {
+  background-color: #fff;
+  border-radius: 1.25rem;
+  flex-basis: 70%;
+  padding: 3rem;
+}

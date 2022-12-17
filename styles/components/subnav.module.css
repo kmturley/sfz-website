@@ -1,0 +1,11 @@
+.subnav {
+  background-color: #fff;
+  border-radius: 1.25rem;
+  padding: 2rem;
+}
+
+.subnav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

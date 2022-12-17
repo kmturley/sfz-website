@@ -2,16 +2,18 @@ import Head from 'next/head';
 import html from 'remark-html';
 import { remark } from 'remark';
 import Layout, { siteTitle } from '../../components/layout';
-import { getDocument, getDocumentSlugs } from '../../lib/docs';
+import { getDocument, getDocuments, getDocumentSlugs } from '../../lib/docs';
 import { YamlDocument } from '../../lib/types';
-import styles from '../../styles/list.module.css';
+import styles from '../../styles/docs.module.css';
+import SubNav, { SubNavGroup } from '../../components/subnav';
 
 type PageProps = {
+  groups: SubNavGroup[];
   document: YamlDocument;
   formatted: string;
 };
 
-const Page = ({ document, formatted }: PageProps) => {
+const Page = ({ groups, document, formatted }: PageProps) => {
   console.log('Document', document.slug);
   return (
     <Layout>
@@ -19,8 +21,12 @@ const Page = ({ document, formatted }: PageProps) => {
         <title>{siteTitle} - Documentation - {document.title}</title>
       </Head>
       <section className={styles.section}>
-        <h1 className={styles.title}>Documentation - {document.title}</h1>
-        <div className={styles.markdown} dangerouslySetInnerHTML={{ __html: formatted }} />
+        <div className={styles.container}>
+          <div className={styles.sidebar}>
+            <SubNav groups={groups}></SubNav>
+          </div>
+          <div className={styles.content} dangerouslySetInnerHTML={{ __html: formatted }}></div>
+        </div>
       </section>
     </Layout>
   );
@@ -51,6 +57,11 @@ export async function getStaticProps({ params }: Params) {
   const formatted: any = await remark().use(html).process(document.content);
   return {
     props: {
+      groups:[
+        { name: 'Getting Started', root: '/documentation/getting-started/', items: getDocuments('documentation/getting-started') },
+        { name: 'Tutorials', root: '/documentation/tutorials/', items: getDocuments('documentation/tutorials') },
+        { name: 'Syntax', root: '/documentation/syntax/', items: getDocuments('documentation/syntax') },
+      ],
       document,
       formatted: formatted.toString(),
     },
