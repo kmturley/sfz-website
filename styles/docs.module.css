@@ -4,27 +4,19 @@
 }
 
 .container {
-  align-items: flex-start;
-  display: flex;
   margin: 0 auto;
   max-width: 90rem;
 }
 
 .sidebar,
 .content {
-  overflow: hidden;
-}
-
-.sidebar {
-  flex-basis: 30%;
-  margin-right: 2rem;
+  overflow-x: scroll;
 }
 
 .content {
   background-color: #fff;
   border-radius: 1.25rem;
-  flex-basis: 70%;
-  padding: 3rem;
+  padding: 1.5rem;
 }
 
 .content h2,
@@ -37,4 +29,21 @@
 
 .content p {
   margin-bottom: 1em;
+}
+
+@media (min-width: 48rem) {
+  .container {
+    align-items: flex-start;
+    display: flex;
+  }
+
+  .sidebar {
+    flex-basis: 30%;
+    margin-right: 2rem;
+  }
+
+  .content {
+    flex-basis: 70%;
+    padding: 3rem;
+  }
 }

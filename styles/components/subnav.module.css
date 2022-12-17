@@ -1,20 +1,38 @@
 .subnavsection {
   background-color: #fff;
   border-radius: 1.25rem;
-  height: 1rem;
+  height: 1.25rem;
   margin-bottom: .5rem;
   overflow: hidden;
   padding: 1.5rem;
   transition: height .25s ease-out;
 }
 
+.subnavHeader {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
 .subnavsectionActive {
   height: auto;
 }
 
-.subnav h6 {
-  cursor: pointer;
-  margin-bottom: .75rem;
+.subnavsectionActive .arrow {
+  transform: rotate(90deg);
+}
+
+.subnavsection h6 {
+  margin: 0;
+}
+
+.arrow {
+  color: #000;
+  font-size: 1.5rem;
+  transition: transform .25s ease-out;
+  transform-origin: center;
 }
 
 .subnav ul {
@@ -36,4 +54,13 @@
 
 .navItemActive {
   color: #1A4BAA;
+}
+
+@media (min-width: 48rem) {
+  .subnavsection {
+    height: 1.5rem;
+  }
+  .subnavsectionActive {
+    height: auto;
+  }
 }
