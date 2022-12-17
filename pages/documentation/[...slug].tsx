@@ -25,7 +25,10 @@ const Page = ({ groups, document, formatted }: PageProps) => {
           <div className={styles.sidebar}>
             <SubNav groups={groups}></SubNav>
           </div>
-          <div className={styles.content} dangerouslySetInnerHTML={{ __html: formatted }}></div>
+          <div className={styles.content}>
+            <h1 className={styles.title}>{document.title}</h1>
+            <div className={styles.markdown} dangerouslySetInnerHTML={{ __html: formatted }} />
+          </div>
         </div>
       </section>
     </Layout>

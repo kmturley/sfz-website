@@ -26,3 +26,15 @@
   flex-basis: 70%;
   padding: 3rem;
 }
+
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  margin-top: 2rem;
+}
+
+.content p {
+  margin-bottom: 1em;
+}
