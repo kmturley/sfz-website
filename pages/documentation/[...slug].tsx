@@ -18,7 +18,9 @@ const Page = ({ groups, document, formatted }: PageProps) => {
   return (
     <Layout>
       <Head>
-        <title>{siteTitle} - Documentation - {document.title}</title>
+        <title>
+          {siteTitle} - Documentation - {document.title}
+        </title>
       </Head>
       <section className={styles.section}>
         <div className={styles.container}>
@@ -60,8 +62,12 @@ export async function getStaticProps({ params }: Params) {
   const formatted: any = await remark().use(html).process(document.content);
   return {
     props: {
-      groups:[
-        { name: 'Getting Started', root: '/documentation/getting-started/', items: getDocuments('documentation/getting-started') },
+      groups: [
+        {
+          name: 'Getting Started',
+          root: '/documentation/getting-started/',
+          items: getDocuments('documentation/getting-started'),
+        },
         { name: 'Tutorials', root: '/documentation/tutorials/', items: getDocuments('documentation/tutorials') },
         { name: 'Syntax', root: '/documentation/syntax/', items: getDocuments('documentation/syntax') },
       ],
