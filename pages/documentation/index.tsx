@@ -1,8 +1,7 @@
 import Head from 'next/head';
 import Layout, { siteTitle } from '../../components/layout';
-import { getDocuments, getDocumentSlugs } from '../../lib/docs';
+import { getDocumentSlugs } from '../../lib/docs';
 import { GetBasePath } from '../../lib/path';
-import { YamlDocument } from '../../lib/types';
 import styles from '../../styles/list.module.css';
 
 type DocumentationProps = {

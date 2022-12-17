@@ -1,18 +1,28 @@
+import Head from 'next/head';
+import html from 'remark-html';
+import { remark } from 'remark';
+import Layout, { siteTitle } from '../../components/layout';
 import { getDocument, getDocumentSlugs } from '../../lib/docs';
 import { YamlDocument } from '../../lib/types';
+import styles from '../../styles/list.module.css';
 
 type PageProps = {
   document: YamlDocument;
+  formatted: string;
 };
 
-const Page = ({ document }: PageProps) => {
+const Page = ({ document, formatted }: PageProps) => {
   console.log('Document', document.slug);
   return (
-    <div>
-      <p>slug: {document.slug.join('/')}</p>
-      <p>title: {document.title}</p>
-      <p>content: {document.content}</p>
-    </div>
+    <Layout>
+      <Head>
+        <title>{siteTitle} - Documentation - {document.title}</title>
+      </Head>
+      <section className={styles.section}>
+        <h1 className={styles.title}>Documentation - {document.title}</h1>
+        <div className={styles.markdown} dangerouslySetInnerHTML={{ __html: formatted }} />
+      </section>
+    </Layout>
   );
 };
 
@@ -37,10 +47,12 @@ type Params = {
 };
 
 export async function getStaticProps({ params }: Params) {
-  console.log('getStaticProps', params);
+  const document: YamlDocument = getDocument('documentation', params.slug);
+  const formatted: any = await remark().use(html).process(document.content);
   return {
     props: {
-      document: getDocument('documentation', params.slug),
+      document,
+      formatted: formatted.toString(),
     },
   };
 }
