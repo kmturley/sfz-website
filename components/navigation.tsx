@@ -11,20 +11,20 @@ const Navigation = () => (
     <ul className={styles.menu}>
       <li>
         <Link
-          href="/instruments"
+          href="/instruments/"
           className={`${styles.navItem} ${IsSelected('/instruments') ? styles.navItemActive : ''}`}
         >
           instruments
         </Link>
       </li>
       <li>
-        <Link href="/software" className={`${styles.navItem} ${IsSelected('/software') ? styles.navItemActive : ''}`}>
+        <Link href="/software/" className={`${styles.navItem} ${IsSelected('/software') ? styles.navItemActive : ''}`}>
           software
         </Link>
       </li>
       <li>
         <Link
-          href="/documentation"
+          href="/documentation/getting-started/what_is_sfz/"
           className={`${styles.navItem} ${IsSelected('/documentation') ? styles.navItemActive : ''}`}
         >
           documentation

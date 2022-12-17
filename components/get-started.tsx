@@ -13,17 +13,17 @@ const GetStarted = () => (
       </div>
       <div className={styles.column}>
         <p className={styles.item}>
-          <Link href="/instruments" className={styles.link}>
+          <Link href="/instruments/" className={styles.link}>
             Browse instruments <span className={styles.arrow}>&#8227;</span>
           </Link>
         </p>
         <p className={styles.item}>
-          <Link href="/players" className={styles.link}>
-            Install a player <span className={styles.arrow}>&#8227;</span>
+          <Link href="/software/" className={styles.link}>
+            Install software <span className={styles.arrow}>&#8227;</span>
           </Link>
         </p>
         <p className={styles.item}>
-          <Link href="/documentation" className={styles.link}>
+          <Link href="/documentation/getting-started/what_is_sfz/" className={styles.link}>
             Create instruments <span className={styles.arrow}>&#8227;</span>
           </Link>
         </p>
