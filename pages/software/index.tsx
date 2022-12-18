@@ -25,6 +25,8 @@ const Software = () => {
     return true;
   };
 
+  const applications: YamlApplication[] = getSoftwareFiltered();
+
   return (
     <Layout>
       <Head>
@@ -32,7 +34,9 @@ const Software = () => {
       </Head>
       <section className={styles.section}>
         <div className={styles.header}>
-          <h1 className={styles.title}>Software</h1>
+          <h1 className={styles.title}>
+            Software <span className={styles.count}>({applications.length})</span>
+          </h1>
         </div>
         <div className={styles.filters}>
           <span className={styles.filterTitle}>Filter by:</span>
@@ -41,7 +45,7 @@ const Software = () => {
           <MultiSelect label="Platform" values={getSoftwarePlatforms()}></MultiSelect>
         </div>
         <div className={styles.list}>
-          {getSoftwareFiltered().map((application: YamlApplication, itemIndex: number) => (
+          {applications.map((application: YamlApplication, itemIndex: number) => (
             <GridItem
               section="software"
               item={application}

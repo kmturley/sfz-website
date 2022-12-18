@@ -7,6 +7,11 @@
   margin-bottom: 1rem;
 }
 
+.count {
+  color: #666;
+  font-size: 1rem;
+}
+
 .filters {
   font-size: 1.25rem;
   font-weight: 500;
@@ -19,6 +24,10 @@
 }
 
 @media (min-width: 48rem) {
+  .count {
+    font-size: 1.4rem;
+  }
+
   .list {
     display: grid;
     grid-auto-rows: minmax(100px, auto);

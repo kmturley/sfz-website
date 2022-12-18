@@ -26,6 +26,8 @@ const Instruments = () => {
     return true;
   };
 
+  const instruments: YamlInstrument[] = getInstrumentsFiltered();
+
   return (
     <Layout>
       <Head>
@@ -33,7 +35,9 @@ const Instruments = () => {
       </Head>
       <section className={styles.section}>
         <div className={styles.header}>
-          <h1 className={styles.title}>Instruments</h1>
+          <h1 className={styles.title}>
+            Instruments <span className={styles.count}>({instruments.length})</span>
+          </h1>
         </div>
         <div className={styles.filters}>
           <span className={styles.filterTitle}>Filter by:</span>
@@ -43,7 +47,7 @@ const Instruments = () => {
         <MultiSelect label="Compatibility" values={getInstrumentCompatibilities()}></MultiSelect> */}
         </div>
         <div className={styles.list}>
-          {getInstrumentsFiltered().map((instrument: YamlInstrument, itemIndex: number) => (
+          {instruments.map((instrument: YamlInstrument, itemIndex: number) => (
             <GridItem
               section="instruments"
               item={instrument}
