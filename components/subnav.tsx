@@ -14,18 +14,14 @@ type SubNavProps = {
 };
 
 const SubNav = ({ groups }: SubNavProps) => {
-  let defaultOpen: { [key: string]: boolean } = {};
-  if (typeof window !== 'undefined' && window.innerWidth > 832) {
-    defaultOpen = {
-      '/documentation/getting-started/': IsSelected('/documentation/getting-started/'),
-      '/documentation/tutorials/': IsSelected('/documentation/tutorials/'),
-      '/documentation/syntax/': IsSelected('/documentation/syntax/'),
-    };
-  }
-  const [isOpen, setIsOpen] = useState(defaultOpen);
+  const [isOpen, setIsOpen] = useState<{ [key: string]: boolean }>({
+    '/documentation/getting-started/': IsSelected('/documentation/getting-started/'),
+    '/documentation/tutorials/': IsSelected('/documentation/tutorials/'),
+    '/documentation/syntax/': IsSelected('/documentation/syntax/'),
+  });
 
-  const toggleSection = (e: React.MouseEvent<HTMLHeadingElement>) => {
-    const id: string = (e.target as HTMLHeadingElement).dataset.id || '';
+  const toggleSection = (e: React.MouseEvent<HTMLDivElement>) => {
+    const id: string = (e.target as HTMLDivElement).dataset.id || '';
     if (isOpen[id] === true) {
       setIsOpen((isOpen) => ({
         ...isOpen,
@@ -38,6 +34,10 @@ const SubNav = ({ groups }: SubNavProps) => {
     }
   };
 
+  const preventClick = (e: React.MouseEvent<HTMLHeadingElement | HTMLSpanElement>) => {
+    e.stopPropagation();
+  };
+
   return (
     <div className={styles.subnav}>
       {groups.map((group: SubNavGroup) => (
@@ -46,8 +46,10 @@ const SubNav = ({ groups }: SubNavProps) => {
           key={group.name}
         >
           <div className={styles.subnavHeader} onClick={toggleSection} data-id={group.root}>
-            <h6>{group.name}</h6>
-            <span className={styles.arrow}>&#8227;</span>
+            <h6 onClick={preventClick}>{group.name}</h6>
+            <span onClick={preventClick} className={styles.arrow}>
+              &#8227;
+            </span>
           </div>
           <ul className={styles.menu}>
             {group.items.map((item: YamlDocument) => (
