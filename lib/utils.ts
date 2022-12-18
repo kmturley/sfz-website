@@ -1,6 +1,7 @@
 import slugify from 'slugify';
 
-function includesValue(items: string | string[] | undefined, values: string | string[]) {
+function includesValue(items: string | string[] | undefined, values: string | string[] | undefined) {
+  if (!items || !values) return false;
   if (typeof items === 'string') {
     if (typeof values === 'string') return items === toSlug(values);
     // os platform contains array of nested objects
