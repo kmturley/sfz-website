@@ -1,10 +1,20 @@
 import slugify from 'slugify';
 
-function includesValue(items: string | string[] | undefined, value: string) {
+function includesValue(items: string | string[] | undefined, values: string | string[]) {
   if (typeof items === 'string') {
-    return items === toSlug(value);
+    if (typeof values === 'string') return items === toSlug(values);
+    // os platform contains array of nested objects
+    return values.some((val: any) => {
+      return val.name.toLowerCase() === items.toLowerCase();
+    });
   } else if (typeof items === 'object') {
-    return items.includes(toSlug(value));
+    if (typeof values === 'string') return items.includes(toSlug(values));
+    // os platform contains array of nested objects
+    return items.some((item: string) => {
+      return values.some((val: any) => {
+        return val.name.toLowerCase() === item.toLowerCase();
+      });
+    });
   }
 }
 

@@ -14,7 +14,6 @@ type PageProps = {
 };
 
 const Page = ({ groups, document, formatted }: PageProps) => {
-  // console.log('Document', document.slug);
   return (
     <Layout>
       <Head>

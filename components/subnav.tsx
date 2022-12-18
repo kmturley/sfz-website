@@ -36,7 +36,6 @@ const SubNav = ({ groups }: SubNavProps) => {
         [id]: true,
       });
     }
-    console.log('toggleSection', id, isOpen);
   };
 
   return (

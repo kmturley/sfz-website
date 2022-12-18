@@ -21,7 +21,7 @@ const Software = () => {
   const matchesFilters = (application: YamlApplication) => {
     if (router.query['category'] && !includesValue(router.query['category'], application.category)) return false;
     if (router.query['license'] && !includesValue(router.query['license'], application.license)) return false;
-    // if (router.query['platform'] && includesValue(router.query['platform'], application.os)) return false;
+    if (router.query['platform'] && !includesValue(router.query['platform'], application.os)) return false;
     return true;
   };
 
