@@ -6,10 +6,10 @@ const GetStarted = () => (
   <section className={styles.section}>
     <div className={styles.container}>
       <div className={styles.column}>
-        <h3>
+        <h2 className={styles.heading}>
           Get started with{' '}
           <img className={styles.logo} src={`${GetBasePath()}/images/sfz-logo.svg`} alt="sfz" loading="lazy" />
-        </h3>
+        </h2>
       </div>
       <div className={styles.column}>
         <p className={styles.item}>

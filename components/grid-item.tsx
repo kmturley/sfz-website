@@ -16,7 +16,7 @@ const GridItem = ({ section, item, itemIndex }: GridItemProps) => (
       <Image src={instrumentImage} alt={item.name}></Image>
     </div>
     <div className={styles.itemDetails}>
-      <h4 className={styles.itemName}>{item.name}</h4>
+      <h3 className={styles.itemName}>{item.name}</h3>
       <p className={styles.itemAuthor}>
         By <span className={styles.itemLink}>{item.author}</span>
       </p>

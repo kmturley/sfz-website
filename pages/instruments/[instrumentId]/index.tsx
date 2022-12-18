@@ -27,7 +27,7 @@ const Instrument = ({ instrument }: InstrumentProps) => {
             <Image className={styles.itemImageTag} src={instrumentImage} alt={instrument.name} fill></Image>
           </div>
           <div className={styles.itemDetails}>
-            <h3 className={styles.itemName}>{instrument.name}</h3>
+            <h2 className={styles.itemName}>{instrument.name}</h2>
             <p className={styles.itemAuthor}>
               By{' '}
               <Link href={instrument.url} target="_blank" className={styles.itemLink}>

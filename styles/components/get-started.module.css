@@ -12,7 +12,7 @@
 .logo {
   filter: invert(100%);
   vertical-align: text-top;
-  width: 50px;
+  width: 44px;
 }
 
 .item {
@@ -50,6 +50,9 @@
   }
   .column:last-child {
     flex-basis: 60%;
+  }
+  .heading {
+    font-size: 2.25rem;
   }
   .logo {
     width: 56px;

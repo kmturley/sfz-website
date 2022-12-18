@@ -27,7 +27,7 @@ const Application = ({ application }: ApplicationProps) => {
             <Image className={styles.itemImageTag} src={applicationImage} alt={application.name} fill></Image>
           </div>
           <div className={styles.itemDetails}>
-            <h3 className={styles.itemName}>{application.name}</h3>
+            <h2 className={styles.itemName}>{application.name}</h2>
             <p className={styles.itemAuthor}>
               By{' '}
               <Link href={application.url} target="_blank" className={styles.itemLink}>

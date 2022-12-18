@@ -14,11 +14,15 @@ type SubNavProps = {
 };
 
 const SubNav = ({ groups }: SubNavProps) => {
-  const [isOpen, setIsOpen] = useState<{ [key: string]: boolean }>({
-    '/documentation/getting-started/': IsSelected('/documentation/getting-started/'),
-    '/documentation/tutorials/': IsSelected('/documentation/tutorials/'),
-    '/documentation/syntax/': IsSelected('/documentation/syntax/'),
-  });
+  let defaultOpen: { [key: string]: boolean } = {};
+  if (typeof window !== 'undefined' && window.innerWidth > 832) {
+    defaultOpen = {
+      '/documentation/getting-started/': IsSelected('/documentation/getting-started/'),
+      '/documentation/tutorials/': IsSelected('/documentation/tutorials/'),
+      '/documentation/syntax/': IsSelected('/documentation/syntax/'),
+    };
+  }
+  const [isOpen, setIsOpen] = useState(defaultOpen);
 
   const toggleSection = (e: React.MouseEvent<HTMLHeadingElement>) => {
     const id: string = (e.target as HTMLHeadingElement).dataset.id || '';
