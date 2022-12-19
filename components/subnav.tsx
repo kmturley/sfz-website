@@ -21,7 +21,9 @@ const SubNav = ({ groups }: SubNavProps) => {
   });
 
   const toggleSection = (e: React.MouseEvent<HTMLDivElement>) => {
-    const id: string = (e.target as HTMLDivElement).dataset.id || '';
+    const target: HTMLDivElement = (e.target as HTMLDivElement);
+    const el: HTMLDivElement = target.nodeName === 'DIV' ? target : (target.parentNode as HTMLDivElement);
+    const id: string = el.dataset.id || '';
     if (isOpen[id] === true) {
       setIsOpen((isOpen) => ({
         ...isOpen,
@@ -34,10 +36,6 @@ const SubNav = ({ groups }: SubNavProps) => {
     }
   };
 
-  const preventClick = (e: React.MouseEvent<HTMLHeadingElement | HTMLSpanElement>) => {
-    e.stopPropagation();
-  };
-
   return (
     <div className={styles.subnav}>
       {groups.map((group: SubNavGroup) => (
@@ -46,8 +44,8 @@ const SubNav = ({ groups }: SubNavProps) => {
           key={group.name}
         >
           <div className={styles.subnavHeader} onClick={toggleSection} data-id={group.root}>
-            <h6 onClick={preventClick}>{group.name}</h6>
-            <span onClick={preventClick} className={styles.arrow}>
+            <h6>{group.name}</h6>
+            <span className={styles.arrow}>
               &#8227;
             </span>
           </div>
