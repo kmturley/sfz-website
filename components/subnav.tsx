@@ -14,11 +14,7 @@ type SubNavProps = {
 };
 
 const SubNav = ({ groups }: SubNavProps) => {
-  const [isOpen, setIsOpen] = useState<{ [key: string]: boolean }>({
-    '/documentation/getting-started/': IsSelected('/documentation/getting-started/'),
-    '/documentation/tutorials/': IsSelected('/documentation/tutorials/'),
-    '/documentation/syntax/': IsSelected('/documentation/syntax/'),
-  });
+  const [isOpen, setIsOpen] = useState<{ [key: string]: boolean }>({});
 
   const toggleSection = (e: React.MouseEvent<HTMLDivElement>) => {
     const target: HTMLDivElement = (e.target as HTMLDivElement);
@@ -40,7 +36,7 @@ const SubNav = ({ groups }: SubNavProps) => {
     <div className={styles.subnav}>
       {groups.map((group: SubNavGroup) => (
         <div
-          className={`${styles.subnavsection} ${isOpen[group.root] ? styles.subnavsectionActive : ''}`}
+          className={`${styles.subnavsection} ${isOpen[group.root] ? styles.subnavsectionOpen : ''} ${IsSelected(group.root) ? styles.subnavsectionSelected : ''}`}
           key={group.name}
         >
           <div className={styles.subnavHeader} onClick={toggleSection} data-id={group.root}>

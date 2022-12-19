@@ -16,11 +16,11 @@
   margin-bottom: 1rem;
 }
 
-.subnavsectionActive {
+.subnavsectionOpen {
   height: auto;
 }
 
-.subnavsectionActive .arrow {
+.subnavsectionOpen .arrow {
   transform: rotate(90deg);
 }
 
@@ -57,10 +57,10 @@
 }
 
 @media (min-width: 48rem) {
-  .subnavsection {
-    height: 1.5rem;
-  }
-  .subnavsectionActive {
+  .subnavsectionSelected {
     height: auto;
+  }
+  .subnavsectionSelected .arrow {
+    transform: rotate(90deg);
   }
 }
