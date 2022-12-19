@@ -13,5 +13,6 @@
 
 .link {
   display: flex;
+  height: 36px;
   margin-right: 1.5rem;
 }
