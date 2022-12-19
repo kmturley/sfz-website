@@ -17,7 +17,7 @@ const SubNav = ({ groups }: SubNavProps) => {
   const [isOpen, setIsOpen] = useState<{ [key: string]: boolean }>({});
 
   const toggleSection = (e: React.MouseEvent<HTMLDivElement>) => {
-    const target: HTMLDivElement = (e.target as HTMLDivElement);
+    const target: HTMLDivElement = e.target as HTMLDivElement;
     const el: HTMLDivElement = target.nodeName === 'DIV' ? target : (target.parentNode as HTMLDivElement);
     const id: string = el.dataset.id || '';
     if (isOpen[id] === true) {
@@ -36,14 +36,14 @@ const SubNav = ({ groups }: SubNavProps) => {
     <div className={styles.subnav}>
       {groups.map((group: SubNavGroup) => (
         <div
-          className={`${styles.subnavsection} ${isOpen[group.root] ? styles.subnavsectionOpen : ''} ${IsSelected(group.root) ? styles.subnavsectionSelected : ''}`}
+          className={`${styles.subnavsection} ${isOpen[group.root] ? styles.subnavsectionOpen : ''} ${
+            IsSelected(group.root) ? styles.subnavsectionSelected : ''
+          }`}
           key={group.name}
         >
           <div className={styles.subnavHeader} onClick={toggleSection} data-id={group.root}>
             <h6>{group.name}</h6>
-            <span className={styles.arrow}>
-              &#8227;
-            </span>
+            <span className={styles.arrow}>&#8227;</span>
           </div>
           <ul className={styles.menu}>
             {group.items.map((item: YamlDocument) => (
