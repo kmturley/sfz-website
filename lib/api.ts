@@ -10,29 +10,31 @@ import {
 } from './types';
 import { toSlug } from './utils';
 
-function getInstrument(instrumentId: string | string[] | undefined) {
+function getInstrument(instrumentId: string | string[] | undefined): YamlInstrument | boolean {
   return getInstruments().filter((instrument: YamlInstrument) => {
     return instrument.slug === instrumentId ? instrument : false;
   })[0];
 }
 
-function getInstrumentCategories() {
-  return (instrumentsYaml as YamlInstruments).categories.map((category: YamlCategory) => {
-    return category.name;
-  });
+function getInstrumentCategories(): string[] {
+  return (instrumentsYaml as YamlInstruments).categories
+    .map((category: YamlCategory) => {
+      return category.name;
+    })
+    .sort((a, b) => a.localeCompare(b));
 }
 
-function getInstrumentCompatibilities() {
+function getInstrumentCompatibilities(): string[] {
   // TODO load from instruments.yml file when attributes are available
-  return ['Bassmidi', 'sforzando', 'sfizz'];
+  return ['Bassmidi', 'sforzando', 'sfizz'].sort((a, b) => a.localeCompare(b));
 }
 
-function getInstrumentCosts() {
+function getInstrumentCosts(): string[] {
   // TODO load from instruments.yml file when attributes are available
-  return ['Free', '$0-$9', '$10-$29', '$30-$49', '$50+'];
+  return ['Free', '$0-$9', '$10-$29', '$30-$49', '$50+'].sort((a, b) => a.localeCompare(b));
 }
 
-function getInstrumentLicenses() {
+function getInstrumentLicenses(): string[] {
   const licenses: string[] = [];
   (instrumentsYaml as YamlInstruments).categories.forEach((category: YamlCategory) => {
     category.instruments.forEach((instrument: YamlInstrument) => {
@@ -40,10 +42,10 @@ function getInstrumentLicenses() {
       licenses.push(instrument.license);
     });
   });
-  return licenses;
+  return licenses.sort((a, b) => a.localeCompare(b));
 }
 
-function getInstruments() {
+function getInstruments(): YamlInstrument[] {
   const list: YamlInstrument[] = [];
   (instrumentsYaml as YamlInstruments).categories.forEach((category: YamlCategory) => {
     category.slug = toSlug(category.name);
@@ -53,10 +55,10 @@ function getInstruments() {
       list.push(instrument);
     });
   });
-  return list;
+  return list.sort((a, b) => a.name.localeCompare(b.name));
 }
 
-function getSoftware() {
+function getSoftware(): YamlApplication[] {
   const list: YamlApplication[] = [];
   (softwareYaml as YamlSoftware).categories.forEach((category: YamlSoftwareCategory) => {
     category.slug = toSlug(category.name);
@@ -66,34 +68,38 @@ function getSoftware() {
       list.push(application);
     });
   });
-  return list;
+  return list.sort((a, b) => a.name.localeCompare(b.name));
 }
 
-function getSoftwareApplication(applicationId: string | string[] | undefined) {
-  return getSoftware().filter((application: YamlInstrument) => {
+function getSoftwareApplication(applicationId: string | string[] | undefined): YamlApplication | boolean {
+  return getSoftware().filter((application: YamlApplication) => {
     return application.slug === applicationId ? application : false;
   })[0];
 }
 
-function getSoftwareCategories() {
-  return (softwareYaml as YamlSoftware).categories.map((category: YamlSoftwareCategory) => {
-    return category.name;
-  });
+function getSoftwareCategories(): string[] {
+  return (softwareYaml as YamlSoftware).categories
+    .map((category: YamlSoftwareCategory) => {
+      return category.name;
+    })
+    .sort((a, b) => a.localeCompare(b));
 }
 
-function getSoftwareLicenses() {
+function getSoftwareLicenses(): string[] {
   const licenses: string[] = [];
   getSoftware().forEach((application: YamlApplication) => {
     if (!application.license || licenses.includes(application.license)) return;
     licenses.push(application.license);
   });
-  return licenses;
+  return licenses.sort((a, b) => a.localeCompare(b));
 }
 
-function getSoftwarePlatforms() {
-  return (softwareYaml as YamlSoftware).os.map((system: any) => {
-    return system.name;
-  });
+function getSoftwarePlatforms(): string[] {
+  return (softwareYaml as YamlSoftware).os
+    .map((system: any) => {
+      return system.name;
+    })
+    .sort((a, b) => a.localeCompare(b));
 }
 
 export {
