@@ -29,7 +29,13 @@
 }
 
 .main {
-  min-height: calc(100vh - 100px - 80px);
+  min-height: calc(100vh - 100px - 75px);
+}
+
+@media (min-width: 48rem) {
+  .main {
+    min-height: calc(100vh - 100px - 80px);
+  }
 }
 
 @media (min-width: 64rem) {

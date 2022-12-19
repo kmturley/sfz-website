@@ -1,6 +1,6 @@
 .section {
   padding: 1.5rem;
-  margin-top: 80px;
+  margin-top: 75px;
   scroll-snap-align: start;
 }
 
@@ -25,6 +25,10 @@
 }
 
 @media (min-width: 48rem) {
+  .section {
+    margin-top: 80px;
+  }
+
   .count {
     font-size: 1.4rem;
   }
