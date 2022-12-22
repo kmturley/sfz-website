@@ -27,11 +27,12 @@ const Instruments = () => {
   };
 
   const instruments: YamlInstrument[] = getInstrumentsFiltered();
+  const title: string = `${siteTitle} - Instruments`;
 
   return (
     <Layout>
       <Head>
-        <title>{siteTitle} - Instruments</title>
+        <title>{title}</title>
       </Head>
       <section className={styles.section}>
         <div className={styles.header}>

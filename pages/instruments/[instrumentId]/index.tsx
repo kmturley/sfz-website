@@ -14,12 +14,11 @@ type InstrumentProps = {
 };
 
 const Instrument = ({ instrument }: InstrumentProps) => {
+  const title: string = `${siteTitle} - Instruments - ${instrument.name}`;
   return (
     <Layout>
       <Head>
-        <title>
-          {siteTitle} - Instruments - {instrument.name}
-        </title>
+        <title>{title}</title>
       </Head>
       <section className={styles.section}>
         <div className={styles.item}>

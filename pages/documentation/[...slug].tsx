@@ -13,12 +13,11 @@ type PageProps = {
 };
 
 const Page = ({ groups, document }: PageProps) => {
+  const title: string = `${siteTitle} - Documentation - ${document.title}`;
   return (
     <Layout>
       <Head>
-        <title>
-          {siteTitle} - Documentation - {document.title}
-        </title>
+        <title>{title}</title>
       </Head>
       <section className={styles.section}>
         <div className={styles.container}>

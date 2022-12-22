@@ -14,12 +14,11 @@ type ApplicationProps = {
 };
 
 const Application = ({ application }: ApplicationProps) => {
+  const title: string = `${siteTitle} - Software - ${application.name}`;
   return (
     <Layout>
       <Head>
-        <title>
-          {siteTitle} - Software - {application.name}
-        </title>
+        <title>{title}</title>
       </Head>
       <section className={styles.section}>
         <div className={styles.item}>

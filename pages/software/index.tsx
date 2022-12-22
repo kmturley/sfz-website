@@ -26,11 +26,12 @@ const Software = () => {
   };
 
   const applications: YamlApplication[] = getSoftwareFiltered();
+  const title: string = `${siteTitle} - Software`;
 
   return (
     <Layout>
       <Head>
-        <title>{siteTitle} - Software</title>
+        <title>{title}</title>
       </Head>
       <section className={styles.section}>
         <div className={styles.header}>

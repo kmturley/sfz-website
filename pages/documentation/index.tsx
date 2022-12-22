@@ -2,10 +2,11 @@ import Head from 'next/head';
 import Layout, { siteTitle } from '../../components/layout';
 
 const Documentation = () => {
+  const title: string = `${siteTitle} - Documentation`;
   return (
     <Layout>
       <Head>
-        <title>{siteTitle} - Documentation</title>
+        <title>{title}</title>
       </Head>
     </Layout>
   );
