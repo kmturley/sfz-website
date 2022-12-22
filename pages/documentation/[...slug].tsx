@@ -2,7 +2,7 @@ import Head from 'next/head';
 import html from 'remark-html';
 import { remark } from 'remark';
 import Layout, { siteTitle } from '../../components/layout';
-import { getDocument, getDocuments, getDocumentSlugs } from '../../lib/docs';
+import { getDocument, getDocumentList, getDocuments, getDocumentSlugs } from '../../lib/docs';
 import { YamlDocument } from '../../lib/types';
 import styles from '../../styles/docs.module.css';
 import SubNav, { SubNavGroup } from '../../components/subnav';
@@ -10,10 +10,9 @@ import SubNav, { SubNavGroup } from '../../components/subnav';
 type PageProps = {
   groups: SubNavGroup[];
   document: YamlDocument;
-  formatted: string;
 };
 
-const Page = ({ groups, document, formatted }: PageProps) => {
+const Page = ({ groups, document }: PageProps) => {
   return (
     <Layout>
       <Head>
@@ -28,7 +27,7 @@ const Page = ({ groups, document, formatted }: PageProps) => {
           </div>
           <div className={styles.content}>
             <h1 className={styles.title}>{document.title}</h1>
-            <div className={styles.markdown} dangerouslySetInnerHTML={{ __html: formatted }} />
+            <div className={styles.markdown} dangerouslySetInnerHTML={{ __html: document.content }} />
           </div>
         </div>
       </section>
@@ -65,13 +64,16 @@ export async function getStaticProps({ params }: Params) {
         {
           name: 'Getting Started',
           root: '/documentation/getting-started/',
-          items: getDocuments('documentation/getting-started'),
+          items: getDocumentList('documentation/getting-started'),
         },
-        { name: 'Tutorials', root: '/documentation/tutorials/', items: getDocuments('documentation/tutorials') },
-        { name: 'Syntax', root: '/documentation/syntax/', items: getDocuments('documentation/syntax') },
+        { name: 'Tutorials', root: '/documentation/tutorials/', items: getDocumentList('documentation/tutorials') },
+        { name: 'Syntax', root: '/documentation/syntax/', items: getDocumentList('documentation/syntax') },
       ],
-      document,
-      formatted: formatted.toString(),
+      document: {
+        title: document.title,
+        slug: document.slug,
+        content: formatted.toString(),
+      },
     },
   };
 }

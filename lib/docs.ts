@@ -2,6 +2,7 @@ import fs from 'fs';
 import glob from 'glob';
 import { join } from 'path';
 import matter from 'gray-matter';
+import { YamlDocument } from './types';
 
 function getDocument(folder: string, slug: string[]) {
   const docDir: string = join(process.cwd(), 'data', folder, slug.join('/') + '.md');
@@ -13,6 +14,18 @@ function getDocument(folder: string, slug: string[]) {
     title: data.title || slug.join('/'),
     content,
   };
+}
+
+function getDocumentList(folder: string) {
+  // console.log('getDocumentList', folder);
+  const slugs: string[][] = getDocumentSlugs(folder);
+  return slugs.map((slug) => {
+    const document: YamlDocument = getDocument(folder, slug);
+    return {
+      title: document.title,
+      slug: document.slug,
+    };
+  });
 }
 
 function getDocuments(folder: string) {
@@ -28,4 +41,4 @@ function getDocumentSlugs(folder: string) {
   return filenames.map((filename: string) => filename.replace('.md', '').split('/'));
 }
 
-export { getDocument, getDocuments, getDocumentSlugs };
+export { getDocument, getDocumentList, getDocuments, getDocumentSlugs };
