@@ -13,11 +13,24 @@ export type YamlCategory = {
 export type YamlInstrument = {
   author: string;
   category: string;
+  download_size: string;
+  downloads?: YamlInstrumentDownload[];
   license: string;
   name: string;
+  page: string;
   short_description: string;
   slug: string;
   url: string;
+  version: string;
+};
+
+export type YamlInstrumentDownload = {
+  label: string;
+  url: string;
+  format: string;
+  samplerate: string;
+  size: string;
+  short_description: string;
 };
 
 export type YamlInstruments = {

@@ -40,6 +40,42 @@
   vertical-align: middle;
 }
 
+.files {
+  padding: 2rem 1.5rem;
+}
+
+.filePreviews {
+  margin-bottom: 1.5rem;
+}
+
+.filePreviews h4,
+.fileDownloads h4 {
+  margin-bottom: 1rem;
+}
+
+.filePreviewAudio,
+.filePreviewAudio::-webkit-media-controls-panel,
+.fileDownload {
+  background-color: #fff;
+  border-radius: 1.25rem;
+  box-sizing: border-box;
+  max-width: 500px;
+  width: 100%;
+}
+
+.fileDownload {
+  align-items: center;
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+}
+
+.fileDownloadIcon {
+  width: 20px;
+}
+
 @media (min-width: 48rem) {
   .section {
     margin-top: 80px;
@@ -53,5 +89,17 @@
   .itemDetails {
     padding: 4rem 3rem;
     width: 60%;
+  }
+
+  .files {
+    display: flex;
+    padding: 3rem;
+  }
+  .filePreviews {
+    margin-right: 3rem;
+    width: 50%;
+  }
+  .fileDownloads {
+    width: 50%;
   }
 }

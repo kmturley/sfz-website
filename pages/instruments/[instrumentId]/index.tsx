@@ -7,7 +7,7 @@ import { toSlug } from '../../../lib/utils';
 import instrumentImage from '../../../public/images/instrument.jpg';
 import { GetBasePath } from '../../../lib/path';
 import { getInstrument, getInstruments } from '../../../lib/api';
-import { YamlInstrument } from '../../../lib/types';
+import { YamlInstrument, YamlInstrumentDownload } from '../../../lib/types';
 
 type InstrumentProps = {
   instrument: YamlInstrument;
@@ -76,9 +76,35 @@ const Instrument = ({ instrument }: InstrumentProps) => {
         </div>
         <div className={styles.files}>
           <div className={styles.filePreviews}>
-            {/* <audio src={instrument.audio} controls preload="true"></audio> */}
+            <h4>Preview</h4>
+            <audio
+              className={styles.filePreviewAudio}
+              src={`https://sfzinstruments.github.io/assets/audio/${toSlug(instrument.category)}/${
+                instrument.page
+              }.mp3`}
+              controls
+              preload="true"
+            ></audio>
           </div>
-          <div className={styles.fileDownloads}>{/* <p>{instrument.file}</p> */}</div>
+          <div className={styles.fileDownloads}>
+            <h4>Download</h4>
+            {instrument.downloads
+              ? instrument.downloads.map((download: YamlInstrumentDownload) => (
+                  <Link href={download.url} target="_blank" className={styles.fileDownload} key={toSlug(download.url)}>
+                    <div className={styles.fileDownloadName}>{download.label}</div>
+                    <div className={styles.fileDownloadFormat}>
+                      {download.format}, {download.samplerate}Khz, {download.size}
+                    </div>
+                    <img
+                      className={styles.fileDownloadIcon}
+                      src={`${GetBasePath()}/images/icon-download.svg`}
+                      alt="Download"
+                      loading="lazy"
+                    />
+                  </Link>
+                ))
+              : ''}
+          </div>
         </div>
       </section>
     </Layout>
