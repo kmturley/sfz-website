@@ -59,8 +59,13 @@
   background-color: #fff;
   border-radius: 1.25rem;
   box-sizing: border-box;
-  max-width: 500px;
+  max-width: 620px;
   width: 100%;
+}
+
+.filePreviewAudio,
+.fileDownload {
+  margin-bottom: .5rem;
 }
 
 .fileDownload {

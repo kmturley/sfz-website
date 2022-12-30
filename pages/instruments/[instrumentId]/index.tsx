@@ -53,16 +53,16 @@ const Instrument = ({ instrument }: InstrumentProps) => {
                 />
                 {instrument.license}
               </li>
-              {/* <li className={styles.attribute}>
+              <li className={styles.attribute}>
                 <img
                     className={styles.icon}
                     src={`${GetBasePath()}/images/icon-cost.svg`}
                     alt="Cost"
                     loading="lazy"
                     />
-                {instrument.cost}
+                Free
             </li>
-            <li className={styles.attribute}>
+            {/* <li className={styles.attribute}>
               <img
                 className={styles.icon}
                 src={`${GetBasePath()}/images/icon-compatibility.svg`}
