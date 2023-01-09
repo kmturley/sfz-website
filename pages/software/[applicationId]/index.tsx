@@ -3,11 +3,11 @@ import Layout, { siteTitle } from '../../../components/layout';
 import styles from '../../../styles/item.module.css';
 import { toSlug } from '../../../lib/utils';
 import Image from 'next/image';
-import applicationImage from '../../../public/images/application.jpg';
 import Link from 'next/link';
 import { GetBasePath } from '../../../lib/path';
 import { YamlApplication } from '../../../lib/types';
 import { getSoftware, getSoftwareApplication } from '../../../lib/api';
+import { imageError } from '../../../lib/image';
 
 type ApplicationProps = {
   application: YamlApplication;
@@ -23,7 +23,17 @@ const Application = ({ application }: ApplicationProps) => {
       <section className={styles.section}>
         <div className={styles.item}>
           <div className={styles.itemImage}>
-            <Image className={styles.itemImageTag} src={applicationImage} alt={application.name} fill></Image>
+            <Image
+              className={styles.itemImageTag}
+              src={`https://sfzinstruments.github.io/assets/img/${toSlug(application.category)}/${
+                application.slug
+              }.jpg`}
+              alt={application.name}
+              data-base={GetBasePath()}
+              data-section="software"
+              onError={imageError}
+              fill
+            ></Image>
           </div>
           <div className={styles.itemDetails}>
             <h2 className={styles.itemName}>{application.name}</h2>

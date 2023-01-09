@@ -1,9 +1,8 @@
 import { SyntheticEvent } from 'react';
-import { GetBasePath } from '../lib/path';
 
 export function imageError(event: SyntheticEvent) {
   const el = event.target as HTMLImageElement;
-  const fallback = `${GetBasePath()}/images/plugin.png`;
+  const fallback = `${el.getAttribute('data-base')}/images/${el.getAttribute('data-section')}.jpg`;
   if (el.getAttribute('src') !== fallback) {
     el.setAttribute('src', fallback);
   }

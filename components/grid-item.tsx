@@ -1,8 +1,10 @@
 import styles from '../styles/components/grid-item.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
-import instrumentImage from '../public/images/instrument.jpg';
+import { imageError } from '../lib/image';
 import { YamlApplication, YamlInstrument } from '../lib/types';
+import { toSlug } from '../lib/utils';
+import { GetBasePath } from '../lib/path';
 
 type GridItemProps = {
   section: string;
@@ -13,7 +15,15 @@ type GridItemProps = {
 const GridItem = ({ section, item, itemIndex }: GridItemProps) => (
   <Link className={styles.item} href={`/${section}/[itemId]/`} as={`/${section}/${item.slug}/`}>
     <div className={styles.itemImage}>
-      <Image src={instrumentImage} alt={item.name}></Image>
+      <Image
+        src={`https://sfzinstruments.github.io/assets/img/${toSlug(item.category)}/${item.slug}.jpg`}
+        alt={item.name}
+        width="300"
+        height="200"
+        data-base={GetBasePath()}
+        data-section={section}
+        onError={imageError}
+      ></Image>
     </div>
     <div className={styles.itemDetails}>
       <h3 className={styles.itemName}>{item.name}</h3>

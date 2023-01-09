@@ -4,10 +4,10 @@ import Link from 'next/link';
 import Layout, { siteTitle } from '../../../components/layout';
 import styles from '../../../styles/item.module.css';
 import { toSlug } from '../../../lib/utils';
-import instrumentImage from '../../../public/images/instrument.jpg';
 import { GetBasePath } from '../../../lib/path';
 import { getInstrument, getInstruments } from '../../../lib/api';
 import { YamlInstrument, YamlInstrumentDownload } from '../../../lib/types';
+import { imageError } from '../../../lib/image';
 
 type InstrumentProps = {
   instrument: YamlInstrument;
@@ -23,7 +23,15 @@ const Instrument = ({ instrument }: InstrumentProps) => {
       <section className={styles.section}>
         <div className={styles.item}>
           <div className={styles.itemImage}>
-            <Image className={styles.itemImageTag} src={instrumentImage} alt={instrument.name} fill></Image>
+            <Image
+              className={styles.itemImageTag}
+              src={`https://sfzinstruments.github.io/assets/img/${toSlug(instrument.category)}/${instrument.slug}.jpg`}
+              alt={instrument.name}
+              data-base={GetBasePath()}
+              data-section="instruments"
+              onError={imageError}
+              fill
+            ></Image>
           </div>
           <div className={styles.itemDetails}>
             <h2 className={styles.itemName}>{instrument.name}</h2>
