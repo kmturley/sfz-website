@@ -10,7 +10,7 @@ categories:
     url:     "https://github.com/sfzinstruments/karoryfer.fashionbass/"
     download_size: "302 MB"
     short_description:
-      "The bass sampled here <a href='http://www.killer.jp/killer/bass/kb_simmony_sw.html'>
+      "The bass sampled here <a href='http://killer.jp/bass/kb-simmony.html'>
       looks odd with the shape which is a bit like a Rick bass that's been
       flipped upside down and redrawn by a fashion designer,
       and the big mirror pickguard</a>, but it's pretty much a typical Jazz bass
@@ -101,23 +101,48 @@ categories:
       samplerate: "44.1"
       size: "138 MB"
       short_description: ""
+      
+  - name:    "Beefowulf Bass"
+    page:    "beefowulf_bass"
+    version: "1.000"
+    author:  "Karoryfer Samples"
+    license: "Commercial"
+    url:     "https://shop.karoryfer.com/products/beefowulf-bass"
+    download_size: "1.2 GB"
+    short_description:
+      "Warm bass guitar for R&B and hip-hop."
+      
+  - name:    "Secret Agent Bass"
+    page:    "secret_agent_bass"
+    version: "1.000"
+    author:  "Karoryfer Samples"
+    license: "Commercial"
+    url:     "https://shop.karoryfer.com/products/secret-agent-bass"
+    download_size: "5.4 GB"
+    short_description:
+      "1972 Polish hollowbody bass guitar."
 
 - name: "Brass"
   page: "brass"
   instruments:
   - name:    "War Tuba"
     page:    "war_tuba"
-#   version: ""
+    version: "1.002"
     author:  "Karoryfer Samples"
     license: "CC-BY-4.0"
-#   samplerate: ""
-#   format:  ""
     url:     "https://github.com/sfzinstruments/karoryfer.war-tuba/"
-#   download_size: ""
+    download_size: "104 MB"
     short_description:
       "War Tuba is a tuba sample library created with the tuba player from
       <a href='http://www.karoryfer.com/hanba'>
       Hańba!, Karoryfer Lecolds' surprisingly successful folk-punk band</a>."
+    downloads:
+    - label: "Instrument"
+      url: "https://github.com/sfzinstruments/karoryfer.war-tuba/releases/download/v1.002/Karoryfer_War_Tuba_v1002.zip"
+      format: "wav"
+      samplerate: "44.1"
+      size: "104 MB"
+      short_description: ""
 
 - name: "Drums"
   page: "drums"
@@ -146,15 +171,21 @@ categories:
 
   - name:    "Gogodze Phu Vol II"
     page:    "gogodze_phu_vol_ii"
-#   version: ""
+    version: "1.001"
     author:  "Karoryfer Samples"
     license: "CC-BY-4.0"
-#   samplerate: ""
     format:  "wav"
     url:     "https://github.com/sfzinstruments/karoryfer.gogodze-phu-vol-ii/"
-#   download_size: ""
+    download_size: "133 MB"
     short_description:
       "A variable fidelity drum kit - lo-fi, hi-fi or anywhere inbetween."
+    downloads:
+    - label: "Instrument"
+      url: "https://github.com/sfzinstruments/karoryfer.gogodze-phu-vol-ii/releases/download/v1.001/Karoryfer_Gogodze_Phu_vol_II.v1.001.zip"
+      format: "wav"
+      samplerate: "44.1"
+      size: "133 MB"
+      short_description: ""
 
   - name:    "Muldjord Kit"
     page:    "muldjord_kit"
@@ -225,7 +256,51 @@ categories:
 #     samplerate: ""
       size: "369,7 MB"
       short_description: ""
-
+      
+  - name:    "Big Rusty Drums"
+    page:    "big_rusty_drums"
+    version: "1.000"
+    author:  "Karoryfer Samples"
+    license: "Commercial"
+    format:  "wav"
+    url:     "https://shop.karoryfer.com/products/big-rusty-drums"
+    download_size: "2.3 GB"
+    short_description:
+      "An oversized drum kit from 1980s Poland."
+            
+  - name:    "Unruly Drums"
+    page:    "unruly_drums"
+    version: "1.000"
+    author:  "Karoryfer Samples"
+    license: "Commercial"
+    format:  "wav"
+    url:     "https://shop.karoryfer.com/products/unruly-drums"
+    download_size: "2 GB"
+    short_description:
+      "A strange drum kit where every drum, including the kick, is a snare."
+            
+  - name:    "Swirly Drums"
+    page:    "swirly_drums"
+    version: "1.100"
+    author:  "Karoryfer Samples"
+    license: "Commercial"
+    format:  "wav"
+    url:     "https://shop.karoryfer.com/products/swirly-drums"
+    download_size: "1.6 GB"
+    short_description:
+      "Punk/indie drums and unusual percussion played with brushes."   
+      
+  - name:    "Frankensnare"
+    page:    "frankensnare"
+    version: "2.000"
+    author:  "Karoryfer Samples"
+    license: "Commercial"
+    format:  "wav"
+    url:     "https://shop.karoryfer.com/products/frankensnare"
+    download_size: "900 GB"
+    short_description:
+      "A collection of snare drums from the small to the huge."
+      
 - name: "Folk"
   page: "folk"
   instruments:
@@ -276,7 +351,51 @@ categories:
       samplerate: "44.1"
       size: "10 MB"
       short_description: "zip archive"
-
+                     
+  - name:    "Kemençe Of The Black Sea"
+    page:    "kemence_of_the_black_sea"
+    version: "1.000"
+    author:  "Karoryfer Samples"
+    license: "Commercial"
+    format:  "wav"
+    url:     "https://shop.karoryfer.com/products/kemence-of-the-black-sea"
+    download_size: "900 MB"
+    short_description:
+      "Box-shaped kemençe, played more like a violin."
+      
+  - name:    "Turkish Rebab"
+    page:    "turkish_rebab"
+    version: "1.000"
+    author:  "Karoryfer Samples"
+    license: "Commercial"
+    format:  "wav"
+    url:     "https://shop.karoryfer.com/products/turkish-rebab"
+    download_size: "300 MB"
+    short_description:
+      "A spike rebab played in the traditional Turkish style."      
+              
+  - name:    "Nanfo"
+    page:    "nanfo"
+    version: "2.000"
+    author:  "Karoryfer Samples"
+    license: "Commercial"
+    format:  "wav"
+    url:     "https://shop.karoryfer.com/products/nanfo"
+    download_size: "2 GB"
+    short_description:
+      "Over a dozen West African instruments - harps, xylophones, flutes etc."
+              
+  - name:    "Three Tagelharpas"
+    page:    "three_tagelharpas"
+    version: "1.000"
+    author:  "Karoryfer Samples"
+    license: "Commercial"
+    format:  "wav"
+    url:     "https://shop.karoryfer.com/products/three-tagelharpas"
+    download_size: "2.2 GB"
+    short_description:
+      "Tagelharpa, strakharpa and bass tagelharpa."
+      
 - name: "Guitars"
   page: "guitars"
   instruments:
@@ -359,7 +478,40 @@ categories:
       samplerate: "44.1"
       size: "716 MB"
       short_description: ""
-
+              
+  - name:    "Glockenskull Guitar"
+    page:    "glockenskull_guitar"
+    version: "1.000"
+    author:  "Karoryfer Samples"
+    license: "Commercial"
+    format:  "wav"
+    url:     "https://shop.karoryfer.com/products/glockenskull_guitar"
+    download_size: "2 GB"
+    short_description:
+      "Late Soviet electric guitar."
+               
+  - name:    "Secret Agent Guitar"
+    page:    "secret_agent_guitar"
+    version: "1.000"
+    author:  "Karoryfer Samples"
+    license: "Commercial"
+    format:  "wav"
+    url:     "https://shop.karoryfer.com/products/secret_agent_guitar"
+    download_size: "3.7 GB"
+    short_description:
+      "12-string hollowbody electric guitar made in 1972 in Poland."     
+                    
+  - name:    "Snowkiss Guitar"
+    page:    "snowkiss_guitar"
+    version: "1.000"
+    author:  "Karoryfer Samples"
+    license: "Commercial"
+    format:  "wav"
+    url:     "https://shop.karoryfer.com/products/snowkiss_guitar"
+    download_size: "5.6 GB"
+    short_description:
+      "Boutique Jazzmaster-style guitar with extended techinques."
+      
 - name: "Keyboards"
   page: "keyboards"
   instruments:
@@ -484,6 +636,82 @@ categories:
       samplerate: "44.1"
       size: "4.1 GB"
       short_description: "tar.gz archive"
+                            
+  - name:    "Hster"
+    page:    "hster"
+    version: "1.000"
+    author:  "Karoryfer Samples"
+    license: "Commercial"
+    format:  "wav"
+    url:     "https://shop.karoryfer.com/products/hster"
+    download_size: "1 GB"
+    short_description:
+      "Mezzosoprano vocal singing in reconstructed Proto-Indo-European."
+      
+  - name:    "Hadzi-Fia"
+    page:    "hadzi_fia"
+    version: "1.000"
+    author:  "Karoryfer Samples"
+    license: "Commercial"
+    format:  "wav"
+    url:     "https://shop.karoryfer.com/products/hadzi-fia"
+    download_size: "1.6 GB"
+    short_description:
+      "Deep male solo vocal singing in the Ewe language from West Africa."
+      
+  - name:    "Hadzi-Hevi"
+    page:    "hadzi_hevi"
+    version: "1.000"
+    author:  "Karoryfer Samples"
+    license: "Commercial"
+    format:  "wav"
+    url:     "https://shop.karoryfer.com/products/hadzi-hevi"
+    download_size: "1.5 GB"
+    short_description:
+      "Female solo vocal singing in the Ewe language from West Africa."
+            
+  - name:    "Torgbe"
+    page:    "torgbe"
+    version: "1.000"
+    author:  "Karoryfer Samples"
+    license: "Commercial"
+    format:  "wav"
+    url:     "https://shop.karoryfer.com/products/torgbe"
+    download_size: "1 GB"
+    short_description:
+      "Male choir singing in the Ewe, Akan and Ga-Adangbe and languages from West Africa."
+      
+  - name:    "Hadziha"
+    page:    "hadziha"
+    version: "1.000"
+    author:  "Karoryfer Samples"
+    license: "Commercial"
+    format:  "wav"
+    url:     "https://shop.karoryfer.com/products/hadziha"
+    download_size: "980 MB"
+    short_description:
+      "Female choir singing in the Ewe, Akan and Ga-Adangbe language from West Africa."      
+      
+  - name:    "Orcophony"
+    page:    "orcophony"
+    version: "1.000"
+    author:  "Karoryfer Samples"
+    license: "Commercial"
+    format:  "wav"
+    url:     "https://shop.karoryfer.com/products/orcophony"
+    download_size: "7.6 GB"
+    short_description:
+      "A medieval-fantasy collection with a goblin theme."
+            
+  - name:    "The Halfling"
+    page:    "the_halfling"
+#   version: ""
+    author:  "Production Voices"
+    license: "Commercial"
+    url:     "https://www.productionvoices.com/product/the-halfling-for-sforzando/"
+#   download_size: ""
+    short_description:
+      "Upright piano plus soundscapes. Compact sforzando version of larger Kontakt library."
 
 - name: "Orchestra"
   page: "orchestra"
@@ -623,6 +851,49 @@ categories:
       size: "1006 MB"
       short_description: ""
 
+  - name:    "Ghana Drums"
+    page:    "ghana_drums"
+    version: "1.000"
+    author:  "Karoryfer Samples"
+    license: "Commercial"
+    url:     "https://shop.karoryfer.com/products/ghana-drums"
+    download_size: "1.4 GB"
+    short_description:
+      "Drums, bells and shakers from West Africa."
+      
+  - name:    "Simple Tamb"
+#   page:    ""
+#   version: ""
+    author:  "TKDrums"
+    license: "Commercial"
+#   samplerate: ""
+#   format:  ""
+    url:     "https://tkd-sound.booth.pm/items/2477823"
+#   download_size: ""
+    short_description: "Tambourine samples. Kontakt version also included. Free demo version available."
+      
+  - name:    "RawCowbell"
+#   page:    ""
+#   version: ""
+    author:  "TKDrums"
+    license: "Commercial"
+#   samplerate: ""
+#   format:  ""
+    url:     "https://tkd-sound.booth.pm/items/2461913"
+#   download_size: ""
+    short_description: "Three cowbells. Kontakt version also included. Free demo version available."
+          
+  - name:    "Castanets"
+#   page:    ""
+#   version: ""
+    author:  "TKDrums"
+    license: "Commercial"
+#   samplerate: ""
+#   format:  ""
+    url:     "https://tkd-sound.booth.pm/items/1754433"
+#   download_size: ""
+    short_description: "Castanets. Kontakt version also included. Free demo version available."
+    
 - name: "Pianos"
   page: "pianos"
   instruments:
@@ -769,6 +1040,76 @@ categories:
       size: "394 MB"
       short_description: ""
 
+  - name:    "PiAnnette"
+    page:    "piannette"
+#   version: ""
+    author:  "fisound"
+    license: "Commercial"
+    url:     "https://fisound.com/products/piannette-electric-piano-library"
+    download_size: "350 MB"
+    short_description:
+      "A Hohner PianetT electric piano."
+
+  - name:    "Concert Grand Compact"
+    page:    "concert_grand_compact"
+#   version: ""
+    author:  "Production Voices"
+    license: "Commercial"
+    url:     "https://www.productionvoices.com/product/concert-grand-compact/"
+#   download_size: ""
+    short_description:
+      "Steinway Model D. Compact sforzando version of larger Kontakt library."
+      
+  - name:    "Death Piano"
+    page:    "death_piano"
+#   version: ""
+    author:  "Production Voices"
+    license: "Commercial"
+    url:     "https://www.productionvoices.com/product/death-piano-sforzando/"
+#    download_size: ""
+    short_description:
+      "Processed piano. Also available in a Kontakt version."
+
+  - name:    "Production Grand Compact"
+    page:    "production_grand_compact"
+#   version: ""
+    author:  "Production Voices"
+    license: "Commercial"
+    url:     "https://www.productionvoices.com/product/production-grand-compact/"
+#   download_size: ""
+    short_description:
+      "Yamaha C7. Compact sforzando version of larger Kontakt library."
+      
+  - name:    "Estate Grand"
+    page:    "estate_grand"
+#   version: ""
+    author:  "Production Voices"
+    license: "Commercial"
+    url:     "https://www.productionvoices.com/product/estate-grand-for-sforzando/"
+    download_size: "3.9 GB"
+    short_description:
+      "Kawai GS 60."
+       
+  - name:    "Estate Grand LE"
+    page:    "estate_grand_le"
+#   version: ""
+    author:  "Production Voices"
+#   license: ""
+    url:     "https://www.productionvoices.com/estate-grand-le-for-sforzando/"
+    download_size: "650 MB"
+    short_description:
+      "Kawai GS 60. Free version of Estate Grand"
+
+  - name:    "Electric V"
+    page:    "electric_v"
+#   version: ""
+    author:  "Production Voices"
+    license: "Commercial"
+    url:     "https://www.productionvoices.com/product/electric-v/"
+#   download_size: ""
+    short_description:
+      "Classic electric piano."
+      
 - name: "Strings"
   page: "strings"
   instruments:
@@ -813,6 +1154,46 @@ categories:
     short_description:
       "Part violin family, part machine."
 
+  - name:    "Vengeful Bass"
+    page:    "vengeful_bass"
+    version: "1.000"
+    author:  "Karoryfer Samples"
+    license: "Commercial"
+    url:     "https://shop.karoryfer.com/products/vengeful-bass"
+    download_size: "2.2 GB"
+    short_description:
+      "Double bass with a wide range of extended techniques."
+
+  - name:    "Vengeful Cello"
+    page:    "vengeful_cello"
+    version: "2.000"
+    author:  "Karoryfer Samples"
+    license: "Commercial"
+    url:     "https://shop.karoryfer.com/products/vengeful-cello"
+    download_size: "1.8 GB"
+    short_description:
+      "Cello with a wide range of extended techniques and bonus string-based synthesizer."      
+      
+  - name:    "Vengeful Viola"
+    page:    "vengeful_viola"
+    version: "1.000"
+    author:  "Karoryfer Samples"
+    license: "Commercial"
+    url:     "https://shop.karoryfer.com/products/vengeful-viola"
+    download_size: "750 MB"
+    short_description:
+      "Viola with a wide range of extended techniques."
+      
+  - name:    "Vengeful Violin"
+    page:    "vengeful_violin"
+    version: "1.000"
+    author:  "Karoryfer Samples"
+    license: "Commercial"
+    url:     "https://shop.karoryfer.com/products/vengeful-violin"
+    download_size: "900 MB"
+    short_description:
+      "Violin with a wide range of extended techniques."
+      
 - name: "Synthesizers"
   page: "synthesizers"
   instruments:
