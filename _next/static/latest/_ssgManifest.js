@@ -1,1 +1,1 @@
-self.__SSG_MANIFEST=new Set(["\u002Fdocumentation","\u002Fdocumentation\u002F[...slug]","\u002Finstruments\u002F[instrumentId]","\u002Fsoftware\u002F[applicationId]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
+self.__SSG_MANIFEST=new Set(["\u002Fdocumentation","\u002Fdocumentation\u002F[...slug]","\u002Finstruments\u002F[authorId]\u002F[instrumentId]","\u002Fsoftware\u002F[applicationId]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
