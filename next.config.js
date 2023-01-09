@@ -2,7 +2,7 @@
 const withYaml = require('next-plugin-yaml');
 
 const nextConfig = {
-  basePath: (process.env.NODE_ENV === 'production') ? '/sfz-website' : '',
+  basePath: (process.env.CI) ? '/sfz-website' : '',
   trailingSlash: true,
   generateBuildId: async () => {
     return 'latest'
@@ -24,5 +24,6 @@ const nextConfig = {
 }
 
 console.log('NODE_ENV', process.env.NODE_ENV);
+console.log('CI', process.env.CI);
 
 module.exports = withYaml(nextConfig);
