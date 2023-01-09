@@ -13,7 +13,11 @@ type GridItemProps = {
 };
 
 const GridItem = ({ section, item, itemIndex }: GridItemProps) => (
-  <Link className={styles.item} href={`/${section}/[itemId]/`} as={`/${section}/${item.slug}/`}>
+  <Link
+    className={styles.item}
+    href={section === 'instruments' ? `/${section}/[authorId]/[instrumentId]/` : `/${section}/[applicationId]/`}
+    as={section === 'instruments' ? `/${section}/${toSlug(item.author)}/${item.slug}/` : `/${section}/${item.slug}/`}
+  >
     <div className={styles.itemImage}>
       <Image
         src={`https://sfzinstruments.github.io/assets/img/${toSlug(item.category)}/${item.slug}.jpg`}

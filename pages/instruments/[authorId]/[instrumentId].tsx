@@ -120,6 +120,7 @@ export async function getStaticPaths() {
   const paths: any = getInstruments().map((instrument: YamlInstrument) => {
     return {
       params: {
+        authorId: toSlug(instrument.author),
         instrumentId: toSlug(instrument.name),
       },
     };
@@ -132,6 +133,7 @@ export async function getStaticPaths() {
 
 type Params = {
   params: {
+    authorId: string;
     instrumentId: string;
   };
 };
