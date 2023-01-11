@@ -5,7 +5,7 @@ import styles from '../../styles/list.module.css';
 import GridItem from '../../components/grid-item';
 import MultiSelect from '../../components/multi-select';
 import { includesValue } from '../../lib/utils';
-import { getInstrumentCategories, getInstrumentLicenses, getInstruments } from '../../lib/api';
+import { getInstrumentCategories, getInstrumentCosts, getInstrumentLicenses, getInstruments } from '../../lib/api';
 import { YamlInstrument } from '../../lib/types';
 import { ChangeEvent } from 'react';
 
@@ -23,6 +23,12 @@ const Instruments = () => {
     if (router.query['category'] && !includesValue(router.query['category'], instrument.category)) return false;
     if (router.query['license'] && !includesValue(router.query['license'], instrument.license)) return false;
     if (
+      router.query['cost'] &&
+      ((router.query['cost'] === 'free' && instrument.license === 'Commercial') ||
+        (router.query['cost'] === 'paid' && instrument.license !== 'Commercial'))
+    )
+      return false;
+    if (
       router.query['search'] &&
       instrument.name?.toLowerCase().indexOf(search) === -1 &&
       instrument.short_description?.toLowerCase().indexOf(search) === -1 &&
@@ -30,7 +36,6 @@ const Instruments = () => {
     )
       return false;
     // Currently there is not data for these two filters
-    // if (router.query['cost'] && includesValue(router.query['cost'], instrument.cost)) return false;
     // if (router.query['compatibility'] && includesValue(router.query['compatibility'], instrument.compatibility)) return false;
     return true;
   };
@@ -72,8 +77,8 @@ const Instruments = () => {
           <span className={styles.filterTitle}>Filter by:</span>
           <MultiSelect label="Category" values={getInstrumentCategories()}></MultiSelect>
           <MultiSelect label="License" values={getInstrumentLicenses()}></MultiSelect>
-          {/* <MultiSelect label="Cost" values={getInstrumentCosts()}></MultiSelect>
-        <MultiSelect label="Compatibility" values={getInstrumentCompatibilities()}></MultiSelect> */}
+          <MultiSelect label="Cost" values={getInstrumentCosts()}></MultiSelect>
+          {/* <MultiSelect label="Compatibility" values={getInstrumentCompatibilities()}></MultiSelect> */}
         </div>
         <div className={styles.list}>
           {instruments.map((instrument: YamlInstrument, itemIndex: number) => (

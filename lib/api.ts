@@ -30,8 +30,7 @@ function getInstrumentCompatibilities(): string[] {
 }
 
 function getInstrumentCosts(): string[] {
-  // TODO load from instruments.yml file when attributes are available
-  return ['Free', '$0-$9', '$10-$29', '$30-$49', '$50+'].sort((a, b) => a.localeCompare(b));
+  return ['Free', 'Paid'];
 }
 
 function getInstrumentLicenses(): string[] {

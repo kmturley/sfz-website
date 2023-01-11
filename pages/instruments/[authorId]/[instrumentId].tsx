@@ -37,11 +37,20 @@ const Instrument = ({ instrument }: InstrumentProps) => {
             <h2 className={styles.itemName}>{instrument.name}</h2>
             <p className={styles.itemAuthor}>
               By{' '}
-              <Link href={instrument.url} target="_blank" className={styles.itemLink}>
+              <Link
+                href={`/instruments/[authorId]/`}
+                as={`/instruments/${toSlug(instrument.author)}/`}
+                className={styles.itemLink}
+              >
                 {instrument.author}
               </Link>
             </p>
             <p className={styles.itemDesc}>{instrument.short_description}</p>
+            <p>
+              <Link href={instrument.url} target="_blank" className={styles.itemLink}>
+                View website
+              </Link>
+            </p>
             <ul className={styles.attributes}>
               <li className={styles.attribute}>
                 <img
@@ -63,7 +72,7 @@ const Instrument = ({ instrument }: InstrumentProps) => {
               </li>
               <li className={styles.attribute}>
                 <img className={styles.icon} src={`${GetBasePath()}/images/icon-cost.svg`} alt="Cost" loading="lazy" />
-                Free
+                {instrument.license === 'Commercial' ? 'Paid' : 'Free'}
               </li>
               {/* <li className={styles.attribute}>
               <img
@@ -90,7 +99,16 @@ const Instrument = ({ instrument }: InstrumentProps) => {
             ></audio>
           </div>
           <div className={styles.fileDownloads}>
-            <h4>Download</h4>
+            {instrument.license === 'Commercial' ? (
+              <div>
+                <h4>Purchase</h4>
+                <Link href={instrument.url} target="_blank" className={styles.itemLink}>
+                  Via website
+                </Link>
+              </div>
+            ) : (
+              <h4>Download</h4>
+            )}
             {instrument.downloads
               ? instrument.downloads.map((download: YamlInstrumentDownload) => (
                   <Link href={download.url} target="_blank" className={styles.fileDownload} key={toSlug(download.url)}>
