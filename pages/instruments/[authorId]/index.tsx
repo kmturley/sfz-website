@@ -9,11 +9,15 @@ import { getInstrumentCategories, getInstrumentLicenses, getInstruments } from '
 import { YamlInstrument } from '../../../lib/types';
 import { ChangeEvent } from 'react';
 
-const InstrumentsAuthor = () => {
+type InstrumentProps = {
+  instruments: YamlInstrument[];
+};
+
+const InstrumentsAuthor = ({ instruments }: InstrumentProps) => {
   const router = useRouter();
 
   const getInstrumentsFiltered = () => {
-    return getInstruments().filter((instrument: YamlInstrument) => {
+    return instruments.filter((instrument: YamlInstrument) => {
       return matchesFilters(instrument) ? instrument : false;
     });
   };
@@ -45,7 +49,7 @@ const InstrumentsAuthor = () => {
     });
   };
 
-  const instruments: YamlInstrument[] = getInstrumentsFiltered();
+  const instrumentsFiltered: YamlInstrument[] = getInstrumentsFiltered();
   const title: string = `${siteTitle} - Instruments`;
   const search: string = router.query['search'] as string;
 
@@ -57,7 +61,7 @@ const InstrumentsAuthor = () => {
       <section className={styles.section}>
         <div className={styles.header}>
           <h1 className={styles.title}>
-            Instruments <span className={styles.count}>({instruments.length})</span>
+            Instruments <span className={styles.count}>({instrumentsFiltered.length})</span>
           </h1>
           <input
             className={styles.search}
@@ -77,7 +81,7 @@ const InstrumentsAuthor = () => {
         <MultiSelect label="Compatibility" values={getInstrumentCompatibilities()}></MultiSelect> */}
         </div>
         <div className={styles.list}>
-          {instruments.map((instrument: YamlInstrument, itemIndex: number) => (
+          {instrumentsFiltered.map((instrument: YamlInstrument, itemIndex: number) => (
             <GridItem
               section="instruments"
               item={instrument}
@@ -92,3 +96,39 @@ const InstrumentsAuthor = () => {
 };
 
 export default InstrumentsAuthor;
+
+type Params = {
+  params: {
+    authorId: string;
+  };
+};
+
+export async function getStaticPaths() {
+  const authorIds: any = {};
+  const paths: Params[] = [];
+  getInstruments().forEach((instrument: YamlInstrument) => {
+    const authorId: string = toSlug(instrument.author);
+    if (authorIds[authorId]) return false;
+    authorIds[authorId] = true;
+    paths.push({
+      params: {
+        authorId: authorId,
+      },
+    });
+  });
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }: Params) {
+  const instruments: any = getInstruments().filter((instrument: YamlInstrument) => {
+    return params.authorId === toSlug(instrument.author) ? instrument : false;
+  });
+  return {
+    props: {
+      instruments: instruments,
+    },
+  };
+}
