@@ -66,7 +66,7 @@ const InstrumentsAuthor = ({ instruments }: InstrumentProps) => {
       <section className={styles.section}>
         <div className={styles.header}>
           <h1 className={styles.title}>
-            Instruments <span className={styles.count}>({instrumentsFiltered.length})</span>
+            {instruments[0].author} <span className={styles.count}>({instrumentsFiltered.length})</span>
           </h1>
           <input
             className={styles.search}
