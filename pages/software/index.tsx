@@ -56,21 +56,21 @@ const Software = () => {
           <h1 className={styles.title}>
             Software <span className={styles.count}>({applications.length})</span>
           </h1>
-          <input
-            className={styles.search}
-            placeholder="Filter by keyword"
-            type="search"
-            id="search"
-            name="search"
-            value={search}
-            onChange={onSearch}
-          />
         </div>
         <div className={styles.filters}>
           <span className={styles.filterTitle}>Filter by:</span>
           <MultiSelect label="Category" values={getSoftwareCategories()}></MultiSelect>
           <MultiSelect label="License" values={getSoftwareLicenses()}></MultiSelect>
           <MultiSelect label="Platform" values={getSoftwarePlatforms()}></MultiSelect>
+          <input
+            className={styles.search}
+            placeholder="Keyword"
+            type="search"
+            id="search"
+            name="search"
+            value={search}
+            onChange={onSearch}
+          />
         </div>
         <div className={styles.list}>
           {applications.map((application: YamlApplication, itemIndex: number) => (

@@ -63,21 +63,21 @@ const Instruments = () => {
           <h1 className={styles.title}>
             Instruments <span className={styles.count}>({instruments.length})</span>
           </h1>
-          <input
-            className={styles.search}
-            placeholder="Filter by keyword"
-            type="search"
-            id="search"
-            name="search"
-            value={search}
-            onChange={onSearch}
-          />
         </div>
         <div className={styles.filters}>
           <span className={styles.filterTitle}>Filter by:</span>
           <MultiSelect label="Category" values={getInstrumentCategories()}></MultiSelect>
           <MultiSelect label="License" values={getInstrumentLicenses()}></MultiSelect>
           <MultiSelect label="Cost" values={getInstrumentCosts()}></MultiSelect>
+          <input
+            className={styles.search}
+            placeholder="Keyword"
+            type="search"
+            id="search"
+            name="search"
+            value={search}
+            onChange={onSearch}
+          />
           {/* <MultiSelect label="Compatibility" values={getInstrumentCompatibilities()}></MultiSelect> */}
         </div>
         <div className={styles.list}>
