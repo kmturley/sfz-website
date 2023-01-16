@@ -1,12 +1,12 @@
 import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
 import Layout, { siteTitle } from '../../../components/layout';
 import styles from '../../../styles/item.module.css';
 import { toSlug } from '../../../lib/utils';
-import Image from 'next/image';
-import Link from 'next/link';
 import { GetBasePath } from '../../../lib/path';
-import { YamlApplication } from '../../../lib/types';
 import { getSoftware, getSoftwareApplication } from '../../../lib/api';
+import { YamlApplication } from '../../../lib/types';
 import { imageError } from '../../../lib/image';
 
 type ApplicationProps = {
@@ -39,11 +39,20 @@ const Application = ({ application }: ApplicationProps) => {
             <h2 className={styles.itemName}>{application.name}</h2>
             <p className={styles.itemAuthor}>
               By{' '}
-              <Link href={application.url} target="_blank" className={styles.itemLink}>
+              <Link
+                href={`/software/[authorId]/`}
+                as={`/software/${toSlug(application.author)}/`}
+                className={styles.itemLink}
+              >
                 {application.author}
               </Link>
             </p>
             <p className={styles.itemDesc}>{application.short_description}</p>
+            <p>
+              <Link href={application.url} target="_blank" className={styles.itemLink}>
+                View website
+              </Link>
+            </p>
             <ul className={styles.attributes}>
               <li className={styles.attribute}>
                 <img
@@ -62,6 +71,10 @@ const Application = ({ application }: ApplicationProps) => {
                   loading="lazy"
                 />
                 {application.license}
+              </li>
+              <li className={styles.attribute}>
+                <img className={styles.icon} src={`${GetBasePath()}/images/icon-cost.svg`} alt="Cost" loading="lazy" />
+                {application.license === 'Commercial' ? 'Paid' : 'Free'}
               </li>
               <li className={styles.attribute}>
                 <img
@@ -94,6 +107,7 @@ export async function getStaticPaths() {
   const paths: any = getSoftware().map((application: YamlApplication) => {
     return {
       params: {
+        authorId: toSlug(application.author),
         applicationId: toSlug(application.name),
       },
     };
@@ -106,6 +120,7 @@ export async function getStaticPaths() {
 
 type Params = {
   params: {
+    authorId: string;
     applicationId: string;
   };
 };
