@@ -25,7 +25,7 @@ const Instrument = ({ instrument }: InstrumentProps) => {
           <div className={styles.itemImage}>
             <Image
               className={styles.itemImageTag}
-              src={`https://sfzinstruments.github.io/assets/img/${toSlug(instrument.category)}/${instrument.slug}.jpg`}
+              src={`https://sfzinstruments.github.io/assets/img/${toSlug(instrument.category)}/${instrument.page}.jpg`}
               alt={instrument.name}
               data-base={GetBasePath()}
               data-section="instruments"

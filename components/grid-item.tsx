@@ -20,7 +20,7 @@ const GridItem = ({ section, item, itemIndex }: GridItemProps) => (
   >
     <div className={styles.itemImage}>
       <Image
-        src={`https://sfzinstruments.github.io/assets/img/${toSlug(item.category)}/${item.slug}.jpg`}
+        src={`https://sfzinstruments.github.io/assets/img/${toSlug(item.category)}/${item.page}.jpg`}
         alt={item.name}
         width="300"
         height="200"
