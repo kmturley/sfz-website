@@ -38,6 +38,7 @@ export type YamlInstruments = {
 };
 
 export type YamlApplication = {
+  page: string;
   slug: string;
   category: string;
   author: string;
