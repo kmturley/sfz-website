@@ -8,3 +8,8 @@ export function imageError(event: SyntheticEvent) {
   }
   return undefined;
 }
+
+export function getImagePath(section: string, base: string, category: string, page: string) {
+  if (!page) return `${base}/images/${section}.jpg`;
+  return `${base}/images/${section}/${category}/${page}.jpg`;
+}

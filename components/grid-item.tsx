@@ -1,7 +1,7 @@
 import styles from '../styles/components/grid-item.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
-import { imageError } from '../lib/image';
+import { getImagePath, imageError } from '../lib/image';
 import { YamlApplication, YamlInstrument } from '../lib/types';
 import { toSlug } from '../lib/utils';
 import { GetBasePath } from '../lib/path';
@@ -20,7 +20,7 @@ const GridItem = ({ section, item, itemIndex }: GridItemProps) => (
   >
     <div className={styles.itemImage}>
       <Image
-        src={`${GetBasePath()}/images/${toSlug(item.category)}/${item.page}.jpg`}
+        src={getImagePath(section, GetBasePath(), toSlug(item.category), item.page)}
         alt={item.name}
         width="300"
         height="200"

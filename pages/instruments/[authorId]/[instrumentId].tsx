@@ -7,7 +7,7 @@ import { toSlug } from '../../../lib/utils';
 import { GetBasePath } from '../../../lib/path';
 import { getInstrument, getInstruments } from '../../../lib/api';
 import { YamlInstrument, YamlInstrumentDownload } from '../../../lib/types';
-import { imageError } from '../../../lib/image';
+import { getImagePath, imageError } from '../../../lib/image';
 
 type InstrumentProps = {
   instrument: YamlInstrument;
@@ -25,7 +25,7 @@ const Instrument = ({ instrument }: InstrumentProps) => {
           <div className={styles.itemImage}>
             <Image
               className={styles.itemImageTag}
-              src={`${GetBasePath()}/images/${toSlug(instrument.category)}/${instrument.page}.jpg`}
+              src={getImagePath('instruments', GetBasePath(), toSlug(instrument.category), instrument.page)}
               alt={instrument.name}
               data-base={GetBasePath()}
               data-section="instruments"
