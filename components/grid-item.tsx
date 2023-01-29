@@ -20,7 +20,12 @@ const GridItem = ({ section, item, itemIndex }: GridItemProps) => (
   >
     <div className={styles.itemImage}>
       <Image
-        src={getImagePath(section, GetBasePath(), toSlug(item.category), item.page)}
+        src={getImagePath(
+          section,
+          GetBasePath(),
+          toSlug(item.category),
+          section === 'instruments' ? item.page : item.slug
+        )}
         alt={item.name}
         width="300"
         height="200"
