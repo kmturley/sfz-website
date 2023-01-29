@@ -25,7 +25,7 @@ const Application = ({ application }: ApplicationProps) => {
           <div className={styles.itemImage}>
             <Image
               className={styles.itemImageTag}
-              src={`https://sfzinstruments.github.io/assets/img/${toSlug(application.category)}/${
+              src={`${GetBasePath()}/images/${toSlug(application.category)}/${
                 application.slug
               }.jpg`}
               alt={application.name}

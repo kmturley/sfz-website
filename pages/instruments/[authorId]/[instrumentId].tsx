@@ -25,7 +25,7 @@ const Instrument = ({ instrument }: InstrumentProps) => {
           <div className={styles.itemImage}>
             <Image
               className={styles.itemImageTag}
-              src={`https://sfzinstruments.github.io/assets/img/${toSlug(instrument.category)}/${instrument.page}.jpg`}
+              src={`${GetBasePath()}/images/${toSlug(instrument.category)}/${instrument.page}.jpg`}
               alt={instrument.name}
               data-base={GetBasePath()}
               data-section="instruments"
@@ -91,7 +91,7 @@ const Instrument = ({ instrument }: InstrumentProps) => {
             <h4>Preview</h4>
             <audio
               className={styles.filePreviewAudio}
-              src={`https://sfzinstruments.github.io/assets/audio/${toSlug(instrument.category)}/${
+              src={`${GetBasePath()}/audio/${toSlug(instrument.category)}/${
                 instrument.page
               }.mp3`}
               controls
