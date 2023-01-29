@@ -91,9 +91,7 @@ const Instrument = ({ instrument }: InstrumentProps) => {
             <h4>Preview</h4>
             <audio
               className={styles.filePreviewAudio}
-              src={`${GetBasePath()}/audio/${toSlug(instrument.category)}/${
-                instrument.page
-              }.mp3`}
+              src={`${GetBasePath()}/audio/${toSlug(instrument.category)}/${instrument.page}.mp3`}
               controls
               preload="true"
             ></audio>
