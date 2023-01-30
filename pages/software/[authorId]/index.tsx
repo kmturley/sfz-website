@@ -8,6 +8,7 @@ import { includesValue, toSlug } from '../../../lib/utils';
 import { YamlApplication, YamlSoftware } from '../../../lib/types';
 import { getSoftware, getSoftwareCategories, getSoftwareLicenses, getSoftwarePlatforms } from '../../../lib/api';
 import { ChangeEvent } from 'react';
+import { GetBasePath } from '../../../lib/path';
 
 type SoftwareProps = {
   applications: YamlApplication[];
@@ -55,6 +56,9 @@ const SoftwareAuthor = ({ applications }: SoftwareProps) => {
     <Layout>
       <Head>
         <title>{title}</title>
+        <meta name="description" content={title} />
+        <meta name="og:image" content={`${GetBasePath()}/images/software.jpg`} />
+        <meta name="og:title" content={title} />
       </Head>
       <section className={styles.section}>
         <div className={styles.header}>

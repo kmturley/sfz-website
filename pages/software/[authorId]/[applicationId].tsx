@@ -19,6 +19,12 @@ const Application = ({ application }: ApplicationProps) => {
     <Layout>
       <Head>
         <title>{title}</title>
+        <meta name="description" content={application.short_description || ''} />
+        <meta
+          name="og:image"
+          content={getImagePath('software', GetBasePath(), toSlug(application.category), application.slug)}
+        />
+        <meta name="og:title" content={title} />
       </Head>
       <section className={styles.section}>
         <div className={styles.item}>

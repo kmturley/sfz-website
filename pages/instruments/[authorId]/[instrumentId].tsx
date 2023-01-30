@@ -19,6 +19,12 @@ const Instrument = ({ instrument }: InstrumentProps) => {
     <Layout>
       <Head>
         <title>{title}</title>
+        <meta name="description" content={instrument.short_description || ''} />
+        <meta
+          name="og:image"
+          content={getImagePath('instruments', GetBasePath(), toSlug(instrument.category), instrument.page)}
+        />
+        <meta name="og:title" content={title} />
       </Head>
       <section className={styles.section}>
         <div className={styles.item}>

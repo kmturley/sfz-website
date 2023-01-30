@@ -8,6 +8,7 @@ import { includesValue } from '../../lib/utils';
 import { getInstrumentCategories, getInstrumentCosts, getInstrumentLicenses, getInstruments } from '../../lib/api';
 import { YamlInstrument } from '../../lib/types';
 import { ChangeEvent } from 'react';
+import { GetBasePath } from '../../lib/path';
 
 const Instruments = () => {
   const router = useRouter();
@@ -57,6 +58,9 @@ const Instruments = () => {
     <Layout>
       <Head>
         <title>{title}</title>
+        <meta name="description" content={title} />
+        <meta name="og:image" content={`${GetBasePath()}/images/instruments.jpg`} />
+        <meta name="og:title" content={title} />
       </Head>
       <section className={styles.section}>
         <div className={styles.header}>
