@@ -45,6 +45,26 @@ a {
   color: #1A4BAA;
 }
 
+pre {
+  background-color: #3C3C3C;
+  border-radius: 1rem;
+  display: inline-grid;
+  margin: 0;
+}
+
+.code-header {
+  color: #CCC;
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  padding: .25em;
+}
+
+code {
+  border-radius: 0 0 1rem 1rem;
+  text-align: left;
+}
+
 @media (min-width: 48rem) {
   body {
     font-size: 18px;
