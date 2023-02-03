@@ -36,21 +36,12 @@
   margin-bottom: 0;
 }
 
-.content .code,
-.content .pre,
-.content code,
 .content pre {
-  background-color: #f4f4f4;
-  border-radius: .5rem;
-  color: #333;
-  font-size: 14px;
+  margin-bottom: 1.5rem;
 }
 
-.content .pre,
-.content pre {
-  line-height: 1.25rem;
-  overflow: auto;
-  padding: 1rem 1.5rem;
+.content code {
+  border-radius: 1rem;
 }
 
 @media (min-width: 48rem) {

@@ -1,11 +1,16 @@
 import Head from 'next/head';
+import { useEffect } from 'react';
 import html from 'remark-html';
 import { remark } from 'remark';
 import Layout, { siteTitle } from '../../components/layout';
-import { getDocument, getDocumentList, getDocuments, getDocumentSlugs } from '../../lib/docs';
+import { getDocument, getDocumentList, getDocumentSlugs } from '../../lib/docs';
 import { YamlDocument } from '../../lib/types';
 import styles from '../../styles/docs.module.css';
 import SubNav, { SubNavGroup } from '../../components/subnav';
+import 'highlight.js/styles/vs2015.css';
+import hljs from 'highlight.js';
+// import { CodeLineNumbers } from '../../lib/highlight.js/code-line-numbers';
+import sfz from '../../lib/highlight.js/sfz';
 
 type PageProps = {
   groups: SubNavGroup[];
@@ -14,6 +19,12 @@ type PageProps = {
 
 const Page = ({ groups, document }: PageProps) => {
   const title: string = `${siteTitle} - Documentation - ${document.title}`;
+  useEffect(() => {
+    hljs.configure({ languages: ['sfz'] });
+    hljs.registerLanguage('sfz', sfz);
+    hljs.highlightAll();
+    // CodeLineNumbers.addCodeLineNumbers();
+  });
   return (
     <Layout>
       <Head>

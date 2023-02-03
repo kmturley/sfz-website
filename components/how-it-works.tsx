@@ -7,7 +7,6 @@ import { CodeLineNumbers } from '../lib/highlight.js/code-line-numbers';
 import sfz from '../lib/highlight.js/sfz';
 
 const HowItWorks = () => {
-  const init = false;
   useEffect(() => {
     hljs.registerLanguage('sfz', sfz);
     hljs.highlightAll();

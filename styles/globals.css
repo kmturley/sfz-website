@@ -48,20 +48,26 @@ a {
 pre {
   background-color: #3C3C3C;
   border-radius: 1rem;
-  display: inline-grid;
+  color: #CCC;
+  font-size: 14px;
+  line-height: 1.5em;
   margin: 0;
 }
 
 .code-header {
-  color: #CCC;
   display: inline-block;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   padding: .25em;
 }
 
-code {
+pre > code {
+  background: #1e1e1e;
   border-radius: 0 0 1rem 1rem;
+  color: #dcdcdc;
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
   text-align: left;
 }
 
