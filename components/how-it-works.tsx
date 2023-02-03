@@ -3,9 +3,8 @@ import styles from '../styles/components/how-it-works.module.css';
 import { GetBasePath } from '../lib/path';
 import 'highlight.js/styles/vs2015.css';
 import hljs from 'highlight.js';
-import { CodeLineNumbers } from 'code-line-numbers';
+import { CodeLineNumbers } from '../lib/highlight.js/code-line-numbers';
 import sfz from '../lib/highlight.js/sfz';
-// import "code-line-numbers/dist/style.css";
 
 const HowItWorks = () => {
   const init = false;

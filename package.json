@@ -15,7 +15,6 @@
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
-    "code-line-numbers": "^0.0.12",
     "eslint": "8.28.0",
     "eslint-config-next": "13.0.5",
     "glob": "^8.0.3",
