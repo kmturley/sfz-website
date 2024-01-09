@@ -127,8 +127,8 @@ const Software = () => {
         <meta name="description" content={title} />
         <meta name="og:image" content={`${GetBasePath()}/images/software.jpg`} />
         <meta name="og:title" content={title} />
-        <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.16.0/src-min-noconflict/ace.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.16.0/src-min-noconflict/ext-modelist.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.16.0/src-min-noconflict/ace.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.16.0/src-min-noconflict/ext-modelist.js" defer></script>
       </Head>
       <section className={styles.section}>
         <div className={styles.header}>
