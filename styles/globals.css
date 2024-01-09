@@ -80,3 +80,16 @@ pre > code {
 .bg-transparent {
   background-color: transparent !important;
 }
+
+.editors {
+  display: flex;
+}
+
+.editor {
+  flex-basis: 33.33%;
+}
+
+.ace_editor {
+  flex-basis: 33.33%;
+  height: 365px;
+}
