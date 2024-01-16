@@ -6,10 +6,16 @@ import { useEffect } from 'react';
 import {
   convertJsToSfz,
   convertJsToXml,
+  convertJsToYaml,
   convertSfzToJs,
   convertSfzToXml,
+  convertSfzToYaml,
   convertXmlToJs,
   convertXmlToSfz,
+  convertXmlToYaml,
+  convertYamlToJs,
+  convertYamlToSfz,
+  convertYamlToXml,
 } from '@sfz-tools/core/dist/convert';
 
 declare global {
@@ -62,6 +68,7 @@ const Software = () => {
       errorEl = document.getElementById('errors');
       init('ace-sfz');
       init('ace-json');
+      init('ace-yaml');
       init('ace-xml');
       loadFile('ace-sfz', fileSfz, true);
     };
@@ -89,14 +96,22 @@ const Software = () => {
       if (id === 'ace-sfz') {
         if (loadAll) load('ace-sfz', 'sfz', file);
         load('ace-json', 'json', JSON.stringify(await convertSfzToJs(file), null, 2));
+        load('ace-yaml', 'yaml', await convertSfzToYaml(file));
         load('ace-xml', 'xml', await convertSfzToXml(file));
       } else if (id === 'ace-json') {
         load('ace-sfz', 'sfz', convertJsToSfz(JSON.parse(file)));
         if (loadAll) load('ace-json', 'json', file);
+        load('ace-yaml', 'yaml', convertJsToYaml(JSON.parse(file)));
         load('ace-xml', 'xml', convertJsToXml(JSON.parse(file)));
+      } else if (id === 'ace-yaml') {
+        load('ace-sfz', 'sfz', convertYamlToSfz(file));
+        load('ace-json', 'json', JSON.stringify(convertYamlToJs(file), null, 2));
+        if (loadAll) load('ace-yaml', 'yaml', file);
+        load('ace-xml', 'xml', convertYamlToXml(file));
       } else if (id === 'ace-xml') {
         load('ace-sfz', 'sfz', convertXmlToSfz(file));
         load('ace-json', 'json', JSON.stringify(convertXmlToJs(file), null, 2));
+        load('ace-yaml', 'yaml', convertXmlToYaml(file));
         if (loadAll) load('ace-xml', 'xml', file);
       }
     } catch (e) {
@@ -137,11 +152,13 @@ const Software = () => {
         <div className="editors">
           <div className="editor">sfz</div>
           <div className="editor">json</div>
+          <div className="editor">yaml</div>
           <div className="editor">xml</div>
         </div>
         <div className="editors">
           <div id="ace-sfz"></div>
           <div id="ace-json"></div>
+          <div id="ace-yaml"></div>
           <div id="ace-xml"></div>
         </div>
         <div id="errors"></div>

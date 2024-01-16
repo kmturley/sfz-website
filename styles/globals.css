@@ -86,10 +86,10 @@ pre > code {
 }
 
 .editor {
-  flex-basis: 33.33%;
+  flex-basis: 25%;
 }
 
 .ace_editor {
-  flex-basis: 33.33%;
+  flex-basis: 25%;
   height: 365px;
 }
